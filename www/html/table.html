@@ -1,0 +1,47 @@
+    <input type="text" ng-model="keywords">
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Edit</th>
+            <th> <a href=""  ng-click="sort('fName')">First Name</a></th>
+            <th> <a href=""  ng-click="sort('lName')">Last Name </a></th>
+            <th> <a href=""  ng-click="sort('age')">Age         </a></th>
+            <th> <a href=""  ng-click="sort('sex')">Sex         </a></th>
+            <th >Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in pageUsers | orderBy : sortID | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Edit
+                </button>
+                </a>
+            </td>
+            <td >{{ user.fName }} </td>
+            <td>{{ user.lName }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.sex }}</td>
+            <td>
+                <button class="btn" ng-click="deleteUser(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+
+    </ul>
+    <hr>
+    <a ng-href="#/create">
+    <button class="btn btn-success" ng-click="clickCreate()">
+        <span class="glyphicon glyphicon-user"></span>Create New User
+    </button>
+    </a>
+    <hr>

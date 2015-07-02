@@ -1,0 +1,37 @@
+var express = require('express');
+var path = require('path');
+var bodyParser = require('body-parser');
+var morgan    		= require('morgan');
+var cookieParser 	= require('cookie-parser');
+var session   		= require('express-session');
+var methodOverride 	= require('method-override');
+var passport 		= require('passport');
+var LocalStrategy 	= require('passport-local').Strategy;
+var favicon 		= require('serve-favicon');
+
+var myService=require('./services/route');
+
+var app = express();
+
+app.use(morgan('dev'));
+
+app.use(cookieParser());
+app.use(bodyParser.json() );   
+app.use(bodyParser.urlencoded({ 
+	extended: true
+}));
+app.use(methodOverride());                  // simulate DELETE and PUT
+app.use(session({ 
+	resave: true,
+    saveUninitialized: true,
+    secret: 'Dendros' }));
+app.use(passport.initialize()); // Add passport initialization
+app.use(passport.session());    // Add passport initialization
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/services/route', myService);
+
+app.set('port', process.env.PORT || 8080);
+app.listen(app.get('port'));
+
+console.log("Server started");

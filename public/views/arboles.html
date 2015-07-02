@@ -1,0 +1,28 @@
+<h3>Listado de Plantas sembradas::</h3>
+<input placeholder="Buscar" type="text" ng-model="keywords">
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th> <a href=""  ng-click="sort('plantas_id')">Id</a></th>
+            <th> <a href=""  ng-click="sort('nombre_comun')">Nombre Comun</a></th>
+            <th> <a href=""  ng-click="sort('nombre_cientifico)">Nombre Cientifico</a></th>
+            <th> <a href=""  ng-click="sort('tipo')">Tipo</a></th>
+            <th> <a href=""  ng-click="sort('descripcion')">Descripcion</a></th> 
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in pageUsers | orderBy : sortID | filter:keywords ">
+            <td >{{ user.plantas_id }} </td>
+            <td >{{ user.nombre_comun }} </td>
+            <td>{{ user.nombre_cientifico }}</td>
+            <td>{{ user.tipo}}</td>
+            <td>{{ user.descripcion }}</td>
+            <td>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+    </ul>
