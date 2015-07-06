@@ -1,23 +1,24 @@
 var mysql = require('mysql');
 
-
 var pool = mysql.createPool({
     host     : 'localhost',
     user     : 'root',
     password : 'mysql'
 });
 
-function MyUsers() {
+
+
+function jornada() {
 }
 
-MyUsers.prototype.display=function(req,done){
-    var queryStr = 'SELECT * FROM especies_plantas;';
+jornada.prototype.display=function(req,done){
+    var queryStr = 'SELECT * FROM jornada_ecologica;';
     this.query(req,queryStr,done);
 
 };
 
 
-MyUsers.prototype.query = function (req,queryString,done) {
+jornada.prototype.query = function (req,queryString,done) {
     pool.getConnection(function(err, connection) {
         // Use the connection
         if (err) {
@@ -42,7 +43,7 @@ MyUsers.prototype.query = function (req,queryString,done) {
     });
 };
 
-MyUsers.prototype.addQuotes = function(string) {
+jornada.prototype.addQuotes = function(string) {
     return "'" + string + "'";
 };
-module.exports = new MyUsers();
+module.exports = new jornada();

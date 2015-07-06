@@ -10,6 +10,7 @@ var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
 
 var myService=require('./services/route');
+var jornadaService=require('./services/jornadaroute');
 
 var app = express();
 
@@ -30,6 +31,8 @@ app.use(passport.session());    // Add passport initialization
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/services/route', myService);
+app.use('/services/jornadaroute', jornadaService);
+
 
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'));

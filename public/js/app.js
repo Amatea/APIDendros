@@ -4,7 +4,8 @@ var app = angular.module('app', [
   'ngResource', 
   'ngRoute',
   'appServices',
-  'appControllers'
+  'appControllers',
+  'appDirectives'
   ])
 
   .config(function($routeProvider, $locationProvider, $httpProvider) {
@@ -75,9 +76,12 @@ var app = angular.module('app', [
       .when('/arboles',{
       	templateUrl: 'views/arboles.html',
         controller: 'TableController'
-      	
       })
-      
+      .when('/jornada_ecologica',{
+        templateUrl: 'views/jornada_ecologica.html',
+        controller: 'jornadaController'
+        
+      })
       .otherwise({
         redirectTo: '/'
       });
