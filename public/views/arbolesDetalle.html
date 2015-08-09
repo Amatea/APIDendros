@@ -1,0 +1,22 @@
+<h2>Arboles ::</h2>
+<div class="container-fluid">
+  <div class="row" ng-repeat= 'data in arboles'>
+
+
+<img ng-src="{{mainImageUrl}}" >
+
+<h1 >{{data.nombre_comun}}</h1>
+
+<p>Nombre Cientifico: {{data.nombre_cientifico }}</p>
+<p>Familia: {{data.familia}}</p>
+<p>Descripcion: {{data.descripcion}}</p>
+<p>{{data.tipo}}</p>
+
+
+<ul >
+  <li ng-repeat="img in proyectos.images">
+    <img ng-src="{{img}}" ng-click="setImage(img)">
+  </li>
+</ul>
+	</div>
+</div>

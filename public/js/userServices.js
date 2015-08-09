@@ -1,24 +1,23 @@
 angular.module('appServices', [])
     .service("userServices", function ($http) {
         var users={};
-        var pageSize=10;
+        var pageSize=100;
         var page=0;
         var editID=0;
         var fName='';
         var lName='';
         var age='';
         var sex='';
-        var currentEdit={
-                id:'',
-                fName:'',
-                lName:'',
-                age:'',
+        var currentDetalle={
+                plantas_id:'',
+                nombre_comun:'',
+                nombre_cientifico:'',
+                tipo:'',
                 sex:''
                 };
         return {
             getPage : function () {
-                console.log("user");
-                console.log(users);
+
                 return  users.slice( page * pageSize, page * pageSize + pageSize);
             },
 
@@ -55,12 +54,25 @@ angular.module('appServices', [])
                 currentEdit.sex   = users[id - 1].sex;
             },
 
+            clickDetalle : function(id) {
+                editID=id;
+                currentEdit.id = id;
+                currentEdit.fName = users[id - 1].fName;
+                currentEdit.lName = users[id - 1].lName;
+                currentEdit.age   = users[id - 1].age;
+                currentEdit.sex   = users[id - 1].sex;
+            },
+
             setUser : function(userdata){
                users = userdata;
             },
 
             getCurrentEdit : function(){
                 return currentEdit;
+            },
+
+            getCurrentDetalle : function(){
+                return currentDetalle;
             },
 
 
@@ -74,5 +86,7 @@ angular.module('appServices', [])
 
         };
     });
-	
+
+    
+    	
 	

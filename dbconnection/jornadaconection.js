@@ -17,6 +17,18 @@ jornada.prototype.display=function(req,done){
 
 };
 
+jornada.prototype.jornadaDetail=function(req,done){
+    var queryStr = "SELECT * FROM jornada_ecologica WHERE jornada_id ="+req.params.jornada_id;
+    this.query(req,queryStr,done);
+
+};
+
+jornada.prototype.jornadainventario=function(req,done){
+    var queryStr = "SELECT * FROM inventario_siembras WHERE jornada_id ="+req.params.jornada_id;
+    this.query(req,queryStr,done);
+
+};
+
 
 jornada.prototype.query = function (req,queryString,done) {
     pool.getConnection(function(err, connection) {
@@ -25,7 +37,7 @@ jornada.prototype.query = function (req,queryString,done) {
             done({"msg": "DB connection error"});
         }
         else{
-            connection.query('use APIamatea');
+            connection.query('use dendros');
             connection.query( queryString, function(err, rows) {
                 // And done with the connection.
                 console.log(err);
@@ -43,7 +55,4 @@ jornada.prototype.query = function (req,queryString,done) {
     });
 };
 
-jornada.prototype.addQuotes = function(string) {
-    return "'" + string + "'";
-};
 module.exports = new jornada();

@@ -1,30 +1,31 @@
 var mysql = require('mysql');
 
-
 var pool = mysql.createPool({
     host     : 'localhost',
     user     : 'root',
     password : 'mysql'
 });
 
-function MyUsers() {
+
+
+function inventario() {
 }
 
-MyUsers.prototype.display=function(req,done){
-    var queryStr = 'SELECT * FROM especies_plantas;';
+inventario.prototype.display=function(req,done){
+    var queryStr = 'SELECT * FROM inventario_siembras;';
     this.query(req,queryStr,done);
 
 };
 
 
-MyUsers.prototype.query = function (req,queryString,done) {
+inventario.prototype.query = function (req,queryString,done) {
     pool.getConnection(function(err, connection) {
         // Use the connection
         if (err) {
             done({"msg": "DB connection error"});
         }
         else{
-            connection.query('use APIamatea');
+            connection.query('use dendros');
             connection.query( queryString, function(err, rows) {
                 // And done with the connection.
                 console.log(err);
@@ -42,7 +43,7 @@ MyUsers.prototype.query = function (req,queryString,done) {
     });
 };
 
-MyUsers.prototype.addQuotes = function(string) {
+inventario.prototype.addQuotes = function(string) {
     return "'" + string + "'";
 };
-module.exports = new MyUsers();
+module.exports = new inventario();

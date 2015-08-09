@@ -75,13 +75,32 @@ var app = angular.module('app', [
 
       .when('/arboles',{
       	templateUrl: 'views/arboles.html',
-        controller: 'TableController'
+        controller: 'arbolesController'
       })
+
+      .when('/arbolesDetalle/:plantas_id',{
+        templateUrl: 'views/arbolesDetalle.html',
+        controller: 'ArbolDetailCtrl'
+      })
+
       .when('/jornada_ecologica',{
         templateUrl: 'views/jornada_ecologica.html',
         controller: 'jornadaController'
         
       })
+
+      .when('/lista_pagos',{
+        templateUrl: 'views/pagos/lista_pagos.html',
+        controller: 'pagolistController'
+        
+      })
+
+      .when('/crear_pago',{
+        templateUrl: 'views/pagos/crearpagos.html',
+        controller: 'pagoController'
+        
+      })
+      
       .otherwise({
         redirectTo: '/'
       });

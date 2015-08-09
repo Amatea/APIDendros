@@ -1,0 +1,59 @@
+<input type="text" ng-model="keywords">
+<hr>
+    <a ng-href="#/crear_pago">
+    <button class="btn btn-success" ng-click="clickCreate()">
+        <span class="glyphicon glyphicon-user"></span>Crear Nuevo Pago
+    </button>
+	</a>
+    <hr>
+
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Editar</th>
+            <th> <a href=""  ng-click="sort('proveedor_id')">Numero</a></th>
+            <th> <a href=""  ng-click="sort('servicio_id')">Tipo de Servicio</a></th>
+            <th> <a href=""  ng-click="sort('razon_social')">Proveedor</a></th>
+            <th> <a href=""  ng-click="sort('nit')">NIT</a></th>
+            <th> <a href=""  ng-click="sort('banco')">Banco</a></th>
+            <th> <a href=""  ng-click="sort('tipo_cuenta')">Tipo</a></th>
+            <th> <a href=""  ng-click="sort('numero_cuenta')">Cuenta</a></th>
+            <th> <a href=""  ng-click="sort('valor')">Valor</a></th>
+    		<th> <a href=""  ng-click="sort('comprobante_id')">Comprovante</a></th>
+    		<th> <a href=""  ng-click="sort('fecha')">Fecha</a></th>
+    		<th> <a href=""  ng-click="sort('estado')">Estado</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="pago in pageUsers | orderBy : sortID | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Editar
+                </button>
+                </a>
+            </td>
+            <td >{{ pago.proveedor_id }} </td>
+            <td>{{ pago.servicio_id }}</td>
+            <td>{{ pago.razon_social }}</td>
+            <td>{{ pago.nit }}</td>
+            <td>{{ pago.banco }}</td>
+            <td>{{ pago.tipo_cuenta }}</td>
+            <td>{{ pago.numero_cuenta }}</td>
+            <td>{{ pago.valor }}</td>
+            <td>{{ pago.comprobante_id }}</td>
+            <td>{{ pago.fecha }} </td> 
+            <td>
+            <button class="btn" ng-class="{Pagado:'btn-success', Pendiente:''}[pago.estado]" ng-click="changePagosStatus(pago);">{{pago.estado}}</button>
+        	</td>    
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+
+    </ul>
+    

@@ -1,6 +1,5 @@
-
 var express = require('express');
-var myUsers = require('../modules/mymodule.js');
+
 var passport        = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 
@@ -36,39 +35,8 @@ router.use(function(req,res,next){
     next();
 });
 
-router.post('/display',function(req,res){
-    myUsers.display(req,function(result){
-        console.log(result);
-        res.send(result);
-   });
-
-});
-
-router.post('/editUser', function(req, res) {
-    myUsers.editUser(req, function(result) {
-        res.send(result);
-    });
-});
-
-router.post('/addUser',function(req,res){
-    myUsers.addUser(req, function(result) {
-        res.send(result);
-    });
-});
-
-router.post('/deleteUser',function(req,res){
-    myUsers.deleteUser(req, function(result) {
-        res.send(result);
-    });
-});
-
-router.use(function(req,res,next){
-    console.log('something is happening');
-    next();
-});
-
 router.get('/',function(req,res){
-        res.send('index.html', { title: 'Dendros' });
+  res.send('index.html', { title: 'Dendros' });
 
 });
 router.get('/users', auth, function(req, res){
@@ -83,7 +51,6 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   res.send(req.user);
 });
 
-// route to log out
 router.post('/logout', function(req, res){
   req.logOut();
   res.send(200);

@@ -9,8 +9,12 @@ var passport 		= require('passport');
 var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
 
+
 var myService=require('./services/route');
 var jornadaService=require('./services/jornadaroute');
+var inventarioService=require('./services/inventarioroute');
+var arbolService=require('./services/arbolroute');
+var pagoService=require('./services/pagoroute');
 
 var app = express();
 
@@ -32,6 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/services/route', myService);
 app.use('/services/jornadaroute', jornadaService);
+app.use('/services/inventarioroute', inventarioService);
+app.use('/services/arbolroute', arbolService);
+app.use('/services/pagoroute', pagoService);
 
 
 app.set('port', process.env.PORT || 8080);
