@@ -1,0 +1,57 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_cotizacion">
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-user"></span>Crear Nueva Cotizacion
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Editar</th>
+            <th> Numero Cotización</a></th>
+            <th> Cliente</a></th>
+            <th> Elaborado por:</th>
+            <th> Fecha </th>
+            <th> Estado </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="cotizacion in pageUsers | orderBy : '- numero_cotizacion' | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Editar
+                </button>
+                </a>
+            </td>
+            <td>
+            	<button type="button" class="btn btn-info">
+            	{{ cotizacion.numero_cotizacion }} 
+            	</button>
+            </td>
+            <td>{{ cotizacion.cliente }}</td>
+            <td>{{ cotizacion.elaborado }}</td>
+            <td>{{ cotizacion.fecha | date}} </td> 
+            <td>
+            <button class="btn" ng-class="{Aprobado:'btn-success', Pendiente:''}[cotizacion.estado]" ng-click="changeCotizacionesStatus(cotizacion);">{{cotizacion.estado}}</button>
+        	</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+
+    </ul>
+    

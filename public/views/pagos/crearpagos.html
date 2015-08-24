@@ -1,10 +1,14 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+
 <h3>Agregar Pago:</h3>
 
 <form class="form-horizontal" name="myForm1">
     <div class="form-group">
-        <label class="col-sm-2 control-label">Numero Proveedor:</label>
+        <label class="col-sm-2 control-label"> <a href=""  ng-click="showModal()" >Numero Proveedor:</a></label>
         <div class="col-sm-10">
-            <input type="number" ng-model="pago.proveedor_id"  placeholder="No" required>
+            <input type="number"  ng-model="pago.proveedor_id"  placeholder="No" required>      
         </div>
     </div>
     <div class="form-group">
@@ -20,6 +24,8 @@
                     <option label='Fotografia' value='6'>
                     <option label='Diseño' value='7'>
                     <option label='Transporte' value='8'>
+                    <option label='Paramedico' value='9'>
+                    <option label='Generales' value='10'>
                 </datalist>
         </div>
     </div>
@@ -61,12 +67,6 @@
         <label class="col-sm-2 control-label">Valor:</label>
         <div class="col-sm-10">
             <input type="text" ng-model="pago.valor"  placeholder="No" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Numero comprobante:</label>
-        <div class="col-sm-10">
-            <input type="number" ng-model="pago.comprobante_id" >
         </div>
     </div>
     <div class="form-group">

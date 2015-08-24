@@ -5,7 +5,8 @@ var app = angular.module('app', [
   'ngRoute',
   'appServices',
   'appControllers',
-  'appDirectives'
+  'appDirectives',
+  'ui.bootstrap'
   ])
 
   .config(function($routeProvider, $locationProvider, $httpProvider) {
@@ -98,6 +99,42 @@ var app = angular.module('app', [
       .when('/crear_pago',{
         templateUrl: 'views/pagos/crearpagos.html',
         controller: 'pagoController'
+        
+      })
+
+      .when('/lista_cotizacion',{
+        templateUrl: 'views/cotizaciones/lista_cotizaciones.html',
+        controller: 'cotizacionlistController'
+        
+      })
+
+      .when('/crear_cotizacion',{
+        templateUrl: 'views/cotizaciones/crear_cotizacion.html',
+        controller: 'cotizacionController'
+        
+      })
+
+      .when('/lista_proveedores',{
+        templateUrl: 'views/proveedores/lista_proveedores.html',
+        controller: 'proveedorlistController'
+        
+      })
+
+      .when('/crear_proveedor',{
+        templateUrl: 'views/proveedores/crear_proveedor.html',
+        controller: 'proveedorController'
+        
+      })
+
+      .when('/lista_facturas',{
+        templateUrl: 'views/facturas/lista_facturas.html',
+        controller: 'facturalistController'
+        
+      })
+
+      .when('/crear_factura',{
+        templateUrl: 'views/facturas/crear_facturas.html',
+        controller: 'facturaController'
         
       })
       

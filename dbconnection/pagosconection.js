@@ -35,9 +35,8 @@ pago.prototype.agregarpago=function(req,done){
         var numerocuenta = this.addQuotes(req.body.numero_cuenta);
         var valor = this.addQuotes(req.body.valor);
         var estado = this.addQuotes(req.body.estado);
-        var comprobante = this.addQuotes(req.body.comprobante_id);
         var fecha = this.addQuotes(req.body.fecha);
-        var queryStr = "INSERT INTO pagos (`proveedor_id`, `servicio_id`, `razon_social`, `nit`, `banco`, `tipo_cuenta`, `numero_cuenta`, `valor`, `estado`, `comprobante_id`, `fecha`) VALUES ("+proveedor+", "+servicio+", "+razonsocial+", "+nit+", "+banco+", "+tipocuenta+", "+numerocuenta+", "+valor+", "+estado+", "+comprobante+", "+fecha+");";
+        var queryStr = "INSERT INTO pagos (`proveedor_id`, `servicio_id`, `razon_social`, `nit`, `banco`, `tipo_cuenta`, `numero_cuenta`, `valor`, `estado`, `fecha`) VALUES ("+proveedor+", "+servicio+", "+razonsocial+", "+nit+", "+banco+", "+tipocuenta+", "+numerocuenta+", "+valor+", "+estado+", "+fecha+");";
         console.log(queryStr);
         this.query(req,queryStr,done);
 

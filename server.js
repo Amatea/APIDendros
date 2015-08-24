@@ -9,12 +9,14 @@ var passport 		= require('passport');
 var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
 
-
 var myService=require('./services/route');
 var jornadaService=require('./services/jornadaroute');
 var inventarioService=require('./services/inventarioroute');
 var arbolService=require('./services/arbolroute');
+var cotizacionService=require('./services/cotizacionroute');
+var facturaService=require('./services/facturaroute');
 var pagoService=require('./services/pagoroute');
+var proveedorService=require('./services/proveedorroute');
 
 var app = express();
 
@@ -38,8 +40,10 @@ app.use('/services/route', myService);
 app.use('/services/jornadaroute', jornadaService);
 app.use('/services/inventarioroute', inventarioService);
 app.use('/services/arbolroute', arbolService);
+app.use('/services/cotizacionroute', cotizacionService);
+app.use('/services/facturaroute', facturaService);
 app.use('/services/pagoroute', pagoService);
-
+app.use('/services/proveedorroute', proveedorService);
 
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'));

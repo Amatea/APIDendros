@@ -154,7 +154,7 @@ appControllers.controller('InventarioDetailCtrl', ['$scope', '$routeParams', 'In
     
   }]);
 
-app.controller("pagolistController", function ($scope,$http, $routeParams, userServices){
+app.controller("pagolistController", function ($scope, $http, $routeParams, $modal, userServices){
     $http.get("/services/pagoroute/pagosdisplay").success(function(response) {
 
         console.log("response");
@@ -204,9 +204,11 @@ app.controller("pagolistController", function ($scope,$http, $routeParams, userS
         pagos.estado = (pagos.estado=="Pagado" ? "Pendiente" : "Pagado");
         $http.put("services/pagoroute/estadopago/"+pagos.pago_id,{estado:pagos.estado});
     };
+
+
 });
 
-app.controller("pagoController", function ($http, $scope, userServices) {
+app.controller("pagoController", function ($http, $scope, $modal, userServices) {
     $scope.pago={};
     $scope.submitCreate=  function() {
         
@@ -217,4 +219,213 @@ app.controller("pagoController", function ($http, $scope, userServices) {
         });
     };
 
+    $scope.showModal=function(){
+        $scope.nuevoMiembro={};
+            var modalInstance = $modal.open({
+                templateUrl: 'views/proveedores/lista_proveedores_modal.html',
+                controller: 'proveedormodallistController'
+            })
+    };
+
 });
+
+app.controller("cotizacionlistController", function ($scope, $http, $routeParams, userServices){
+    $http.get("/services/cotizacionroute/cotizaciondisplay").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+    $scope.sort = function (id) {
+        $scope.sortID = id;
+    };
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
+    };
+
+    $scope.clickCreate = function(){
+        $scope.cotizacion_id ='';
+        $scope.numero_cotizacion ='';
+        $scope.cliente   ='';
+        $scope.elaborado  ='';
+        $scope.fecha  ='';
+        $scope.estado  ='';
+    };
+
+    $scope.clickEdit = function(id) {
+        userServices.clickEdit(id);
+
+    };
+
+    $scope.deleteUser = function(id){
+        $scope.pageUsers=userServices.deleteUser(id);
+        $scope.autoPaging = userServices.autoPage()
+        $http.post("/services/route/deleteUser",$scope.user).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+
+    $scope.changeCotizacionesStatus = function(cotizaciones){
+        cotizaciones.estado = (cotizaciones.estado=="Aprobado" ? "Pendiente" : "Aprobado");
+        $http.put("services/cotizacionroute/estadocotizacion/"+cotizaciones.cotizacion_id,{estado:cotizaciones.estado});
+    };
+
+});
+
+app.controller("cotizacionController", function ($http, $scope, userServices) {
+    $scope.cotizacion={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/cotizacionroute/agregarcotizacion",$scope.cotizacion).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+  
+});
+
+app.controller("proveedorlistController", function ($scope, $http, $routeParams, userServices){
+    $http.get("/services/proveedorroute/proveedoresdisplay").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+    $scope.sort = function (id) {
+        $scope.sortID = id;
+    };
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
+    };
+
+    $scope.clickCreate = function(){
+        $scope.cotizacion_id ='';
+        $scope.numero_cotizacion ='';
+        $scope.cliente   ='';
+        $scope.elaborado  ='';
+        $scope.fecha  ='';
+        $scope.estado  ='';
+    };
+
+    $scope.clickEdit = function(id) {
+        userServices.clickEdit(id);
+
+    };
+
+
+});
+
+app.controller("proveedorController", function ($http, $scope, userServices) {
+    $scope.proveedor={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/proveedorroute/agregarproveedor",$scope.proveedor).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+  
+});
+
+app.controller("proveedormodallistController", function ($scope, $http, $routeParams, userServices){
+    $http.get("/services/proveedorroute/proveedoresdisplay").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+    $scope.sort = function (id) {
+        $scope.sortID = id;
+    };
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+});
+
+app.controller("facturalistController", function ($scope, $http, $routeParams, userServices){
+    $http.get("/services/facturaroute/facturasdisplay").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+    $scope.sort = function (id) {
+        $scope.sortID = id;
+    };
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
+    };
+
+    $scope.clickCreate = function(){
+        $scope.cotizacion_id ='';
+        $scope.numero_cotizacion ='';
+        $scope.cliente   ='';
+        $scope.elaborado  ='';
+        $scope.fecha  ='';
+        $scope.estado  ='';
+    };
+
+    $scope.clickEdit = function(id) {
+        userServices.clickEdit(id);
+
+    };
+
+    $scope.changeFacturasStatus = function(facturas){
+        facturas.estado = (facturas.estado=="Pagada" ? "Pendiente" : "Pagada");
+        $http.put("services/facturaroute/estadofactura/"+facturas.factura_id,{estado:facturas.estado});
+    };
+
+
+});
+
+app.controller("facturaController", function ($http, $scope, userServices) {
+    $scope.factura={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/facturaroute/agregarfactura",$scope.factura).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+  
+});
+

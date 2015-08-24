@@ -1,0 +1,33 @@
+<hr>
+Buscar:: <input type="text" ng-model="keywords">
+<hr>
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th> Id Proveedor</a></th>
+            <th> Nombre</a></th>
+            <th> NIT</th>
+            <th> Banco</th>
+            <th> Tipo</th>
+            <th> Cuenta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="proveedor in pageUsers | orderBy : '- pago_id' | filter:keywords ">
+            <td >{{ proveedor.proveedor_id }} </td>
+            <td>{{ proveedor.razon_social }}</td>
+            <td>{{ proveedor.NIT }}</td>
+            <td>{{ proveedor.banco }}</td>
+            <td>{{ proveedor.tipo_cuenta }}</td>
+            <td>{{ proveedor.cuenta_bancaria }}</td>  
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+
+    </ul>
+    

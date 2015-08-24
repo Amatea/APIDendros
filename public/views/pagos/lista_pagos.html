@@ -1,32 +1,36 @@
-<input type="text" ng-model="keywords">
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
 <hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
     <a ng-href="#/crear_pago">
-    <button class="btn btn-success" ng-click="clickCreate()">
-        <span class="glyphicon glyphicon-user"></span>Crear Nuevo Pago
-    </button>
-	</a>
-    <hr>
-
-
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-user"></span>Crear Nuevo Pago
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
     <table class="table table-striped ">
         <thead>
         <tr>
             <th>Editar</th>
-            <th> <a href=""  ng-click="sort('proveedor_id')">Id Proveedor</a></th>
-            <th> <a href=""  ng-click="sort('servicio_id')">Tipo de Servicio</a></th>
-            <th> <a href=""  ng-click="sort('razon_social')">Nombre Proveedor</a></th>
+            <th> Id Proveedor</a></th>
+            <th> Tipo de Servicio</a></th>
+            <th> Nombre Proveedor</th>
             <th> <a href=""  ng-click="sort('nit')">NIT</a></th>
             <th> <a href=""  ng-click="sort('banco')">Banco</a></th>
             <th> <a href=""  ng-click="sort('tipo_cuenta')">Tipo</a></th>
             <th> <a href=""  ng-click="sort('numero_cuenta')">Cuenta No</a></th>
             <th> <a href=""  ng-click="sort('valor')">Valor</a></th>
-    		<th> <a href=""  ng-click="sort('comprobante_id')">Comprovante</a></th>
     		<th> <a href=""  ng-click="sort('fecha')">Fecha</a></th>
     		<th> <a href=""  ng-click="sort('estado')">Estado</a></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="pago in pageUsers | orderBy : sortID | filter:keywords ">
+        <tr ng-repeat="pago in pageUsers | orderBy : '- pago_id' | filter:keywords ">
             <td>
                 <a  ng-href="#/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
@@ -42,16 +46,10 @@
             <td>{{ pago.tipo_cuenta }}</td>
             <td>{{ pago.numero_cuenta }}</td>
             <td>{{ pago.valor | currency: $ :0 }}</td>
-            <td>{{ pago.comprobante_id }}</td>
             <td>{{ pago.fecha | date}} </td> 
             <td>
             <button class="btn" ng-class="{Pagado:'btn-success', Pendiente:''}[pago.estado]" ng-click="changePagosStatus(pago);">{{pago.estado}}</button>
         	</td>
-        	<td>
-            	<button  class="btn" ng-click="ShowForm(pago.pago_id)" ng-hide="showFilas">
-                    <span class="glyphicon glyphicon-pencil"></span>ocultar
-                </button>
-            </td>   
         </tr>
         </tbody>
     </table>
