@@ -21,8 +21,8 @@ jornadarouter.get('/jornadaDetail/:jornada_id',function(req,res){
    });
 });
 
-jornadarouter.get('/jornadainventario/:jornada_id',function(req,res){
-    jornada.jornadainventario(req,function(result){
+jornadarouter.put('/agregarjornada',function(req,res){
+    jornada.agregarjornada(req,function(result){
         res.send(result);
    });
 });

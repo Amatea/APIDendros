@@ -17,6 +17,19 @@ inventario.prototype.display=function(req,done){
 
 };
 
+inventario.prototype.agregarinventario=function(req,done){
+        console.log(req.body);
+        var plantas = this.addQuotes(req.body.plantas_id);
+        var cantidad = this.addQuotes(req.body.cantidad);
+        var jornada = this.addQuotes(req.body.jornada_id);
+        var fecha = this.addQuotes(req.body.fecha);
+        var queryStr = "INSERT INTO inventario_siembras (`plantas_id`, `cantidad`, `jornada_id`, `fecha`) VALUES ("+plantas+", "+cantidad+", "+jornada+", "+fecha+");";
+        console.log(queryStr);
+        this.query(req,queryStr,done);
+
+
+};
+
 
 inventario.prototype.query = function (req,queryString,done) {
     pool.getConnection(function(err, connection) {

@@ -1,37 +1,25 @@
 var express = require('express');
-var jornada = require('../dbconnection/inventarioconection.js');
+var inventario = require('../dbconnection/inventarioconection.js');
 
-var router = express.Router();
+var inventarioroute = express.Router();
 
-router.use(function(req,res,next){
+inventarioroute.use(function(req,res,next){
     console.log('something is happening');
     next();
 });
 
-router.post('/display',function(req,res){
-    jornada.display(req,function(result){
+inventarioroute.get('/display',function(req,res){
+    inventario.display(req,function(result){
         console.log(result);
         res.send(result);
    });
 });
 
-router.post('/editUser', function(req, res) {
-    jornada.editUser(req, function(result) {
-        res.send(result);
-    });
-});
-
-router.post('/addUser',function(req,res){
-    jornada.addUser(req, function(result) {
-        res.send(result);
-    });
-});
-
-router.post('/deleteUser',function(req,res){
-    jornada.deleteUser(req, function(result) {
+inventarioroute.put('/agregarinventario',function(req,res){
+    inventario.agregarinventario(req, function(result) {
         res.send(result);
     });
 });
 
 
-module.exports = router;
+module.exports = inventarioroute;

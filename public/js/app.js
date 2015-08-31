@@ -90,6 +90,12 @@ var app = angular.module('app', [
         
       })
 
+      .when('/crear_jornada',{
+        templateUrl: 'views/jornadas/crear_jornada.html',
+        controller: 'jornadaCrearController'
+        
+      })
+
       .when('/lista_pagos',{
         templateUrl: 'views/pagos/lista_pagos.html',
         controller: 'pagolistController'
@@ -135,6 +141,18 @@ var app = angular.module('app', [
       .when('/crear_factura',{
         templateUrl: 'views/facturas/crear_facturas.html',
         controller: 'facturaController'
+        
+      })
+
+      .when('/lista_inventario_siembras',{
+        templateUrl: 'views/inventario_siembras/lista_siembras.html',
+        controller: 'siembralistController'
+        
+      })
+
+      .when('/crear_inventario_siembras',{
+        templateUrl: 'views/inventario_siembras/crear_siembras.html',
+        controller: 'siembracrearController'
         
       })
       

@@ -23,9 +23,18 @@ jornada.prototype.jornadaDetail=function(req,done){
 
 };
 
-jornada.prototype.jornadainventario=function(req,done){
-    var queryStr = "SELECT * FROM inventario_siembras WHERE jornada_id ="+req.params.jornada_id;
-    this.query(req,queryStr,done);
+jornada.prototype.agregarjornada=function(req,done){
+        console.log(req.body);
+        var jornada_id = this.addQuotes(req.body.jornada_id);
+        var cliente = this.addQuotes(req.body.cliente);
+        var participantes = this.addQuotes(req.body.numero_participantes);
+        var arboles = this.addQuotes(req.body.numero_arboles);
+        var interpretes = this.addQuotes(req.body.interpretes);
+        var fecha = this.addQuotes(req.body.fecha);
+        var queryStr = "INSERT INTO jornada_ecologica (`jornada_id`, `cliente`, `numero_participantes`,  `numero_arboles`, `interpretes`, `fecha` ) VALUES ("+jornada_id+", "+cliente+", "+participantes+", "+arboles+", "+interpretes+", "+fecha+");";
+        console.log(queryStr);
+        this.query(req,queryStr,done);
+
 
 };
 
@@ -53,6 +62,10 @@ jornada.prototype.query = function (req,queryString,done) {
         }
 
     });
+};
+
+jornada.prototype.addQuotes = function(string) {
+    return "'" + string + "'";
 };
 
 module.exports = new jornada();

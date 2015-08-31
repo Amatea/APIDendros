@@ -140,19 +140,19 @@ app.controller("jornadaController", function ($scope,$http, userServices){
     };
 });
 
+app.controller("jornadaCrearController", function ($http, $scope, userServices) {
+    $scope.jornada={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/jornadaroute/agregarjornada",$scope.jornada).success(function(response) {
 
-appControllers.controller('InventarioDetailCtrl', ['$scope', '$routeParams', 'Inventario',
-  function($scope, $routeParams, Inventario) {
-    $scope.inventarios = Inventario.get({jornada_id: $routeParams.jornada_id}, function(inventario) {
-      $scope.mainImageUrl = inventario.images[0];
-    });
+            console.log("response");
 
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
+        });
+    };
 
-    }
-    
-  }]);
+});
+
 
 app.controller("pagolistController", function ($scope, $http, $routeParams, $modal, userServices){
     $http.get("/services/pagoroute/pagosdisplay").success(function(response) {
@@ -211,9 +211,7 @@ app.controller("pagolistController", function ($scope, $http, $routeParams, $mod
 app.controller("pagoController", function ($http, $scope, $modal, userServices) {
     $scope.pago={};
     $scope.submitCreate=  function() {
-        
         $http.post("/services/pagoroute/agregarpago",$scope.pago).success(function(response) {
-
             console.log("response");
 
         });
@@ -287,9 +285,7 @@ app.controller("cotizacionlistController", function ($scope, $http, $routeParams
 app.controller("cotizacionController", function ($http, $scope, userServices) {
     $scope.cotizacion={};
     $scope.submitCreate=  function() {
-        
         $http.put("/services/cotizacionroute/agregarcotizacion",$scope.cotizacion).success(function(response) {
-
             console.log("response");
 
         });
@@ -343,7 +339,6 @@ app.controller("proveedorController", function ($http, $scope, userServices) {
     $scope.submitCreate=  function() {
         
         $http.put("/services/proveedorroute/agregarproveedor",$scope.proveedor).success(function(response) {
-
             console.log("response");
 
         });
@@ -426,6 +421,69 @@ app.controller("facturaController", function ($http, $scope, userServices) {
 
         });
     };
-  
+
 });
+
+app.controller("siembralistController", function ($scope, $http, $routeParams, userServices){
+    $http.get("/services/inventarioroute/display").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+    $scope.sort = function (id) {
+        $scope.sortID = id;
+    };
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
+    };
+
+    $scope.clickCreate = function(){
+        $scope.cotizacion_id ='';
+        $scope.numero_cotizacion ='';
+        $scope.cliente   ='';
+        $scope.elaborado  ='';
+        $scope.fecha  ='';
+        $scope.estado  ='';
+    };
+
+    $scope.clickEdit = function(id) {
+        userServices.clickEdit(id);
+
+    };
+
+});
+
+app.controller("siembracrearController", function ($http, $scope, $modal, userServices) {
+    $scope.siembra={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/inventarioroute/agregarinventario",$scope.siembra).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+
+    $scope.showModalarbol=function(){
+        $scope.nuevoMiembro={};
+            var modalInstance = $modal.open({
+                templateUrl: 'views/inventario_siembras/modal_arboles.html',
+                controller: 'arbolesController'
+            })
+    };
+
+});
+
+
 

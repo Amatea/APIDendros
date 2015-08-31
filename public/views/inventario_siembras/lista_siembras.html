@@ -1,0 +1,49 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_inventario_siembras">
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-leaf"></span> Crear Nueva Siembra
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Editar</th>
+            <th> Planta</a></th>
+            <th> Cantidad</a></th>
+            <th> Proyecto</th>
+            <th> Fecha </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="siembra in pageUsers | orderBy : '- fecha' | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-leaf"></span> Editar
+                </button>
+                </a>
+            </td>
+            <td>{{ siembra.plantas_id }}</td>
+            <td>{{ siembra.cantidad }}</td>
+            <td>{{ siembra.jornada_id }}</td>
+            <td>{{ siembra.fecha | date}} </td> 
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+
+    </ul>
+    

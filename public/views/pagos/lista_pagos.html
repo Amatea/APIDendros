@@ -25,6 +25,7 @@
             <th> <a href=""  ng-click="sort('tipo_cuenta')">Tipo</a></th>
             <th> <a href=""  ng-click="sort('numero_cuenta')">Cuenta No</a></th>
             <th> <a href=""  ng-click="sort('valor')">Valor</a></th>
+            <th> <a href=""  ng-click="sort('proyecto')">Proyecto</a></th>
     		<th> <a href=""  ng-click="sort('fecha')">Fecha</a></th>
     		<th> <a href=""  ng-click="sort('estado')">Estado</a></th>
         </tr>
@@ -46,6 +47,7 @@
             <td>{{ pago.tipo_cuenta }}</td>
             <td>{{ pago.numero_cuenta }}</td>
             <td>{{ pago.valor | currency: $ :0 }}</td>
+            <td>{{ pago.proyecto }}</td>
             <td>{{ pago.fecha | date}} </td> 
             <td>
             <button class="btn" ng-class="{Pagado:'btn-success', Pendiente:''}[pago.estado]" ng-click="changePagosStatus(pago);">{{pago.estado}}</button>
