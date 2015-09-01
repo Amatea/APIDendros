@@ -30,8 +30,9 @@ jornada.prototype.agregarjornada=function(req,done){
         var participantes = this.addQuotes(req.body.numero_participantes);
         var arboles = this.addQuotes(req.body.numero_arboles);
         var interpretes = this.addQuotes(req.body.interpretes);
+        var coordenada = this.addQuotes(req.body.coordenada);
         var fecha = this.addQuotes(req.body.fecha);
-        var queryStr = "INSERT INTO jornada_ecologica (`jornada_id`, `cliente`, `numero_participantes`,  `numero_arboles`, `interpretes`, `fecha` ) VALUES ("+jornada_id+", "+cliente+", "+participantes+", "+arboles+", "+interpretes+", "+fecha+");";
+        var queryStr = "INSERT INTO jornada_ecologica (`jornada_id`, `cliente`, `numero_participantes`,  `numero_arboles`, `interpretes`, `coordenada`, `fecha` ) VALUES ("+jornada_id+", "+cliente+", "+participantes+", "+arboles+", "+interpretes+", "+coordenada+", "+fecha+");";
         console.log(queryStr);
         this.query(req,queryStr,done);
 

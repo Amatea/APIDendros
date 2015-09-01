@@ -21,6 +21,7 @@
             <th> <a href=""  ng-click="sort('numero_participantes')">Numero de Participantes</a></th>
             <th> <a href="#/inventarios/{{jornada_id}}"  ng-click="sort('numero_arboles')">Numero de Arboles</a></th>
             <th> <a href=""  ng-click="">Interpretes</a></th>
+            <th> <a href=""  ng-click="">Coordenada</a></th>
             <th> <a href=""  ng-click="sort('fecha')">Fecha</a></th>
             
         </tr>
@@ -32,6 +33,7 @@
             <td >{{ user.numero_participantes }} </td>
             <td >{{ user.numero_arboles}} </td>
             <td >{{ user.interpretes}} </td>
+            <td >{{ user.coordenada}} </td>
             <td >{{ user.fecha | date}} </td>
             
             <td>
