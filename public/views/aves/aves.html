@@ -1,6 +1,3 @@
-<div>
-    <dendros-administrador></dendros-administrador>
-</div>
 <hr>
 <h3>Listado de Aves::</h3>
 <hr>
@@ -28,9 +25,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="ave in pageUsers | orderBy : '- fecha' | filter:keywords ">
+        <tr ng-repeat="ave in pageUsers | orderBy : '- aves_id' | filter:keywords ">
             <td>
-                <a  ng-href="#/edit">
+                <a  ng-href="#/aves">
                 <button  class="btn" ng-click="clickEdit(user.id)">
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button>
