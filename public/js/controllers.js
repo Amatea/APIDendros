@@ -44,9 +44,6 @@ app.controller("arbolesController", function ($scope, $http, userServices){
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
@@ -57,27 +54,6 @@ app.controller("arbolesController", function ($scope, $http, userServices){
         $scope.getCurrentPage();
     };
 
-    $scope.clickCreate = function(){
-        $scope.fName ='';
-        $scope.lName ='';
-        $scope.age   ='';
-        $scope.sex   ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
-
-    $scope.deleteUser = function(id){
-        $scope.pageUsers=userServices.deleteUser(id);
-        $scope.autoPaging = userServices.autoPage()
-        $http.post("/services/route/deleteUser",$scope.user).success(function(response) {
-
-            console.log("response");
-
-        });
-    };
 });
 
 app.controller("ArbolDetailCtrl", function ($http, $scope, $routeParams){
@@ -104,9 +80,6 @@ app.controller("jornadaController", function ($scope,$http, userServices){
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
@@ -117,30 +90,9 @@ app.controller("jornadaController", function ($scope,$http, userServices){
         $scope.getCurrentPage();
     };
 
-    $scope.clickCreate = function(){
-        $scope.fName ='';
-        $scope.lName ='';
-        $scope.age   ='';
-        $scope.sex   ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
-
-    $scope.deleteUser = function(id){
-        $scope.pageUsers=userServices.deleteUser(id);
-        $scope.autoPaging = userServices.autoPage()
-        $http.post("/services/route/deleteUser",$scope.user).success(function(response) {
-
-            console.log("response");
-
-        });
-    };
 });
 
-app.controller("jornadaCrearController", function ($http, $scope, userServices) {
+app.controller("jornadaCrearController", function ($http, $scope) {
     $scope.jornada={};
     $scope.submitCreate=  function() {
         
@@ -163,41 +115,13 @@ app.controller("pagolistController", function ($scope, $http, $routeParams, $mod
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
-
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
     };
 
-
-
     $scope.setPageIndex =function(id) {
         userServices.setPageIndex(id);
         $scope.getCurrentPage();
-    };
-
-    $scope.clickCreate = function(){
-        $scope.proveedor_id ='';
-        $scope.servicio_id ='';
-        $scope.banco   ='';
-        $scope.nombre  ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
-
-    $scope.deleteUser = function(id){
-        $scope.pageUsers=userServices.deleteUser(id);
-        $scope.autoPaging = userServices.autoPage()
-        $http.post("/services/route/deleteUser",$scope.user).success(function(response) {
-
-            console.log("response");
-
-        });
     };
 
     $scope.changePagosStatus = function(pagos){
@@ -205,10 +129,9 @@ app.controller("pagolistController", function ($scope, $http, $routeParams, $mod
         $http.put("services/pagoroute/estadopago/"+pagos.pago_id,{estado:pagos.estado});
     };
 
-
 });
 
-app.controller("pagoController", function ($http, $scope, $modal, userServices) {
+app.controller("pagoController", function ($http, $scope, $modal) {
     $scope.pago={};
     $scope.submitCreate=  function() {
         $http.post("/services/pagoroute/agregarpago",$scope.pago).success(function(response) {
@@ -236,9 +159,6 @@ app.controller("cotizacionlistController", function ($scope, $http, $routeParams
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
@@ -251,29 +171,6 @@ app.controller("cotizacionlistController", function ($scope, $http, $routeParams
         $scope.getCurrentPage();
     };
 
-    $scope.clickCreate = function(){
-        $scope.cotizacion_id ='';
-        $scope.numero_cotizacion ='';
-        $scope.cliente   ='';
-        $scope.elaborado  ='';
-        $scope.fecha  ='';
-        $scope.estado  ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
-
-    $scope.deleteUser = function(id){
-        $scope.pageUsers=userServices.deleteUser(id);
-        $scope.autoPaging = userServices.autoPage()
-        $http.post("/services/route/deleteUser",$scope.user).success(function(response) {
-
-            console.log("response");
-
-        });
-    };
 
     $scope.changeCotizacionesStatus = function(cotizaciones){
         cotizaciones.estado = (cotizaciones.estado=="Aprobado" ? "Pendiente" : "Aprobado");
@@ -282,7 +179,7 @@ app.controller("cotizacionlistController", function ($scope, $http, $routeParams
 
 });
 
-app.controller("cotizacionController", function ($http, $scope, userServices) {
+app.controller("cotizacionController", function ($http, $scope) {
     $scope.cotizacion={};
     $scope.submitCreate=  function() {
         $http.put("/services/cotizacionroute/agregarcotizacion",$scope.cotizacion).success(function(response) {
@@ -302,9 +199,6 @@ app.controller("proveedorlistController", function ($scope, $http, $routeParams,
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
@@ -317,24 +211,10 @@ app.controller("proveedorlistController", function ($scope, $http, $routeParams,
         $scope.getCurrentPage();
     };
 
-    $scope.clickCreate = function(){
-        $scope.cotizacion_id ='';
-        $scope.numero_cotizacion ='';
-        $scope.cliente   ='';
-        $scope.elaborado  ='';
-        $scope.fecha  ='';
-        $scope.estado  ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
-
 
 });
 
-app.controller("proveedorController", function ($http, $scope, userServices) {
+app.controller("proveedorController", function ($http, $scope) {
     $scope.proveedor={};
     $scope.submitCreate=  function() {
         
@@ -355,12 +235,14 @@ app.controller("proveedormodallistController", function ($scope, $http, $routePa
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
+    };
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
     };
 
 });
@@ -374,9 +256,6 @@ app.controller("facturalistController", function ($scope, $http, $routeParams, u
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
@@ -389,19 +268,6 @@ app.controller("facturalistController", function ($scope, $http, $routeParams, u
         $scope.getCurrentPage();
     };
 
-    $scope.clickCreate = function(){
-        $scope.cotizacion_id ='';
-        $scope.numero_cotizacion ='';
-        $scope.cliente   ='';
-        $scope.elaborado  ='';
-        $scope.fecha  ='';
-        $scope.estado  ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
 
     $scope.changeFacturasStatus = function(facturas){
         facturas.estado = (facturas.estado=="Pagada" ? "Pendiente" : "Pagada");
@@ -411,7 +277,7 @@ app.controller("facturalistController", function ($scope, $http, $routeParams, u
 
 });
 
-app.controller("facturaController", function ($http, $scope, userServices) {
+app.controller("facturaController", function ($http, $scope) {
     $scope.factura={};
     $scope.submitCreate=  function() {
         
@@ -433,14 +299,10 @@ app.controller("siembralistController", function ($scope, $http, $routeParams, u
         $scope.autoPaging = userServices.autoPage()
     });
 
-    $scope.sort = function (id) {
-        $scope.sortID = id;
-    };
 
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
     };
-
 
 
     $scope.setPageIndex =function(id) {
@@ -448,23 +310,9 @@ app.controller("siembralistController", function ($scope, $http, $routeParams, u
         $scope.getCurrentPage();
     };
 
-    $scope.clickCreate = function(){
-        $scope.cotizacion_id ='';
-        $scope.numero_cotizacion ='';
-        $scope.cliente   ='';
-        $scope.elaborado  ='';
-        $scope.fecha  ='';
-        $scope.estado  ='';
-    };
-
-    $scope.clickEdit = function(id) {
-        userServices.clickEdit(id);
-
-    };
-
 });
 
-app.controller("siembracrearController", function ($http, $scope, $modal, userServices) {
+app.controller("siembracrearController", function ($http, $scope, $modal) {
     $scope.siembra={};
     $scope.submitCreate=  function() {
         
@@ -484,6 +332,91 @@ app.controller("siembracrearController", function ($http, $scope, $modal, userSe
     };
 
 });
+
+app.controller("clientelistController", function ($scope, $http, $routeParams, userServices){
+    $http.get("/services/clienteroute/display").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
+    };
+
+});
+
+app.controller("crearclienteController", function ($http, $scope) {
+    $scope.cliente={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/clienteroute/agregarcliente",$scope.cliente).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+
+});
+
+app.controller("avesController", function ($scope, $http, $routeParams, userServices){
+    $http.post("/services/averoute/avesdisplay").success(function(response) {
+
+        console.log("response");
+        userServices.setUser(response);
+        $scope.pageUsers=userServices.getPage();
+        $scope.autoPaging = userServices.autoPage()
+    });
+
+
+    $scope.getCurrentPage = function() {
+        $scope.pageUsers=userServices.getPage();
+    };
+
+    $scope.setPageIndex =function(id) {
+        userServices.setPageIndex(id);
+        $scope.getCurrentPage();
+    };
+
+});
+
+app.controller("avesCrearController", function ($http, $scope) {
+    $scope.ave={};
+    $scope.submitCreate=  function() {
+        
+        $http.put("/services/averoute/agregarave",$scope.ave).success(function(response) {
+
+            console.log("response");
+
+        });
+    };
+
+});
+
+app.controller("avesDetailCtrl", function ($http, $scope, $routeParams){
+
+    $http.get('/services/averoute/displayDetail/' + $routeParams.aves_id)
+      .success(function(data){
+        $scope.aves = data
+        console.log(data)
+
+        })
+            .error(function(data) {
+                console.log('Error:' + data);
+        });
+    
+  
+});
+
+
 
 
 

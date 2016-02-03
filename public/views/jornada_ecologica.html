@@ -17,7 +17,8 @@
         <thead>
         <tr>
             <th> <a href=""  ng-click="sort('jornada_id')">Id</a></th>
-            <th> <a href=""  ng-click="sort('cliente')">cliente</a></th>
+            <th> <a href=""  ng-click="sort('titulo')">Titulo</a></th>
+            <th> <a href=""  ng-click="sort('cliente_id')">Cliente</a></th>
             <th> <a href=""  ng-click="sort('numero_participantes')">Numero de Participantes</a></th>
             <th> <a href="#/inventarios/{{jornada_id}}"  ng-click="sort('numero_arboles')">Numero de Arboles</a></th>
             <th> <a href=""  ng-click="">Interpretes</a></th>
@@ -27,9 +28,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="user in pageUsers | orderBy : sortID | filter:keywords ">
+        <tr ng-repeat="user in pageUsers | orderBy : '- fecha' | filter:keywords ">
             <td >{{ user.jornada_id }} </td>
-            <td >{{ user.cliente }} </td>
+            <td >{{ user.titulo }} </td>
+            <td >{{ user.cliente_id }} </td>
             <td >{{ user.numero_participantes }} </td>
             <td >{{ user.numero_arboles}} </td>
             <td >{{ user.interpretes}} </td>

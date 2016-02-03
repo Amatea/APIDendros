@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+	    <title>Amatea::</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	    <link rel='stylesheet' href='/stylesheets/style.css' />
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	    <link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  	</head>
+  	<h3>Amatea:: Dia Mundial de la Protección Ambiental</h3>
+  	<body ng-controller="formController">
+		  <h3 class="glyphicon glyphicon-globe"> Inscribete::</h3>
+		<hr>
+
+		<form class="form-horizontal" name="myForm1" >
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Nombre(s) y Apellidos:</label>
+		        <div class="col-sm-10">
+		            <input type="text" ng-model="formulario.nombre" required>
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Correo Electronico:</label>
+		        <div class="col-sm-10">
+		            <input type="text" ng-model="formulario.correo" required>
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Telefono:</label>
+		        <div class="col-sm-10">
+		            <input type="text" ng-model="formulario.telefono" required>
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Número de arboles donados:</label>
+		        <div class="col-sm-10">
+		            <input type="text" ng-model="formulario.donacion" required>
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Número de Acompañantes (maxímo 2)*:</label>
+		        <div class="col-sm-10">
+		            <input type="text" ng-model="formulario.acompanante">
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Dejanos tus comentarios:</label>
+		        <div class="col-sm-10">
+		            <textarea  ng-model="formulario.comentario" rows="6"></textarea>
+		        </div>
+		    </div>
+		</form>
+
+		<hr>
+		<a ng-href="gracias.html">
+		<button class="btn btn-success" ng-click="submitCreate()" >
+		    <span class="glyphicon glyphicon-leaf"></span> Enviar
+		</button>
+		</a>
+		<hr>
+		<h4><span class="glyphicon glyphicon-envelope"></span> Te llegará un correo de PayU, donde puedes pagar con tarjeta o en efectivo</h4>
+			<p>Recuerda que por cada árbol donado, te pueden acompañar dos personas</p>
+
+  	</body>
+  	<hr>
+  	<address>
+		  <span class="glyphicon glyphicon-envelope"></span><strong> Para más informacion::</strong><br>
+		  Dirección:: Carrera 6 No 2 61<br>
+		  Cali, Colombia<br>
+		  <abbr title="Phone">CEL:</abbr> 312 8959947
+		</address>
+
+		<address>
+		  <strong>Amatea Comunicaciones::</strong><br>
+		  <a href="mailto:#">comunicatea@amatea.org</a>
+	</address>
+</html>
+
+
+
+<script src="/js/app_form.js"></script>

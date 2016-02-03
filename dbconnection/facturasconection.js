@@ -6,10 +6,8 @@ var pool = mysql.createPool({
     password : 'mysql'
 });
 
-
-
 function facturas() {
-}
+};
 
 facturas.prototype.facturasdisplay=function(req,done){
     var queryStr = 'SELECT * FROM facturas';

@@ -1,0 +1,56 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+<hr>
+<h3>Listado de Clientes::</h3>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_cliente">
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-globe"></span> Crear Nuevo Cliente
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th> Editar</a></th>
+            <th> Id Cliente</a></th>
+            <th> Nombre</a></th>
+            <th> NIT</th>
+            <th> Tipo</th>
+            <th> Email</th>
+            <th> Ciudad</th>
+            <th> Fecha</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="cliente in pageUsers | orderBy : '- cliente_id' | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Editar
+                </button>
+                </a>
+            </td>
+            <td >{{ cliente.cliente_id }} </td>
+            <td>{{ cliente.razon_social }}</td>
+            <td>{{ cliente.nit}}</td>
+            <td>{{ cliente.tipo }}</td>
+            <td>{{ cliente.correo_electronico }}</td>
+            <td>{{ cliente.ciudad }}</td> 
+            <td>{{ cliente.fecha | date}} </td> 
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <ul class="pagination" ng-repeat="index in autoPaging"  >
+        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
+
+    </ul>
+    

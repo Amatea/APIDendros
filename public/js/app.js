@@ -84,6 +84,22 @@ var app = angular.module('app', [
         controller: 'ArbolDetailCtrl'
       })
 
+      .when('/aves',{
+        templateUrl: 'views/aves/aves.html',
+        controller: 'avesController'
+      })
+
+      .when('/crear_ave',{
+        templateUrl: 'views/aves/crear_ave.html',
+        controller: 'avesCrearController'
+        
+      })
+
+      .when('/avesDetalle/:aves_id',{
+        templateUrl: 'views/aves/avesDetalle.html',
+        controller: 'avesDetailCtrl'
+      })
+
       .when('/jornada_ecologica',{
         templateUrl: 'views/jornada_ecologica.html',
         controller: 'jornadaController'
@@ -153,6 +169,18 @@ var app = angular.module('app', [
       .when('/crear_inventario_siembras',{
         templateUrl: 'views/inventario_siembras/crear_siembras.html',
         controller: 'siembracrearController'
+        
+      })
+
+      .when('/lista_clientes',{
+        templateUrl: 'views/clientes/lista_clientes.html',
+        controller: 'clientelistController'
+        
+      })
+
+      .when('/crear_cliente',{
+        templateUrl: 'views/clientes/crear_cliente.html',
+        controller: 'crearclienteController'
         
       })
       

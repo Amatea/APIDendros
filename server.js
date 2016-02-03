@@ -17,6 +17,9 @@ var cotizacionService=require('./services/cotizacionroute');
 var facturaService=require('./services/facturaroute');
 var pagoService=require('./services/pagoroute');
 var proveedorService=require('./services/proveedorroute');
+var clienteService=require('./services/clienteroute');
+var formularioService=require('./services/formularioroute');
+var aveService=require('./services/averoute');
 
 var app = express();
 
@@ -44,6 +47,9 @@ app.use('/services/cotizacionroute', cotizacionService);
 app.use('/services/facturaroute', facturaService);
 app.use('/services/pagoroute', pagoService);
 app.use('/services/proveedorroute', proveedorService);
+app.use('/services/clienteroute', clienteService);
+app.use('/services/formularioroute', formularioService);
+app.use('/services/averoute', aveService);
 
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'));

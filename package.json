@@ -1,7 +1,7 @@
 {
-  "name": "myapp",
-  "version": "0.0.0",
-  "description": "pratices",
+  "name": "appDendros",
+  "version": "0.5.0",
+  "description": "app de gestion de Amatea",
   "main": "index.js",
   "scripts": {
     "test": "index"
@@ -9,7 +9,7 @@
   "keywords": [
     "test"
   ],
-  "author": "bill",
+  "author": "andres sarmiento",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.4.4",

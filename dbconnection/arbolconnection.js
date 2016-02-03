@@ -18,7 +18,6 @@ arboles.prototype.display=function(req,done){
 arboles.prototype.displayDetail=function(req,done){
     var queryStr = "select * FROM  especies_plantas WHERE plantas_id ="+req.params.plantas_id;
     this.query(req,queryStr,done);
-    
 };
 
 

@@ -1,20 +1,30 @@
 <div>
     <dendros-administrador></dendros-administrador>
 </div>
+<hr>
 <h3>Listado de Plantas sembradas::</h3>
-<input placeholder="Buscar" type="text" ng-model="keywords">
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_arbol">
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-cloud"></span> Insertar Nuevo Registro
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
     <table class="table table-striped ">
         <thead>
         <tr>
             <th> <a href=""  ng-click="sort('plantas_id')">Id</a></th>
             <th> <a href=""  ng-click="sort('nombre_comun')">Nombre Comun</a></th>
             <th> <a href=""  ng-click="sort('nombre_cientifico')">Nombre Cientifico</a></th>
-            
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="arbol in pageUsers | orderBy : 'plantas_id' | filter:keywords ">
-            
+        <tr ng-repeat="arbol in pageUsers | orderBy : 'plantas_id' | filter:keywords   ">
             </td>
                 <td >{{ arbol.plantas_id }} </td>
                 <td ><a href="#/arbolesDetalle/{{arbol.plantas_id}}">{{ arbol.nombre_comun }} </td>
