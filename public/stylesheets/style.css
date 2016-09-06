@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+.headerTmpl {
+	position: relative;
+	overflow: inherit;
+	display: inline-block;
+	width: 100%
+}
+
+	.info{
+	width: 300px;
+		
+	}
+
+	.h_logo{
+		float: right;
+		width: 100px;
+		margin-top: -60px;
+		margin-right: 50px;
+	}
+
+.done-Cumplida {
+	text-decoration: line-through;
+	color: grey;
+}

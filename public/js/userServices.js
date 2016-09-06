@@ -34,6 +34,29 @@ angular.module('appServices', [])
         };
     });
 
+app.factory('GEO', ['$resource', function($resource){
+    return $resource('api/GEO/:id', {id: '@_id'}, {
+        update: {
+            method: 'PUT'
+        }
+    })
+}]);
+
+app.factory('Tareas', ['$resource', function($resource){
+    return $resource('api/tareas/:id', {id: '@_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+    })
+}]);
+
+app.factory('Eventos', ['$resource', function($resource){
+    return $resource('api/eventos/:id', {id: '@_id'}, {
+        show: { method: 'GET'},
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+    })
+}]);
+
     
     	
 	

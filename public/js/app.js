@@ -6,6 +6,7 @@ var app = angular.module('app', [
   'appServices',
   'appControllers',
   'appDirectives',
+  'leaflet-directive',
   'ui.bootstrap'
   ])
 
@@ -183,7 +184,35 @@ var app = angular.module('app', [
         controller: 'crearclienteController'
         
       })
+
+      .when('/tareas',{
+        templateUrl: 'views/tareas/tareas.html',
+        controller: 'tareasController'
+        
+      })
+
+      .when('/crear_tarea',{
+        templateUrl: 'views/tareas/crear_tarea.html',
+        controller: 'tareasController'
+        
+      })
+
+      .when('/crear_evento',{
+        templateUrl: 'views/eventos/crear_evento.html',
+        controller: 'eventosController'
+        
+      })
+
+      .when('/eventos',{
+        templateUrl: 'views/eventos/eventos.html',
+        controller: 'eventosController'
+      })
       
+      .when('/editar_eventos/:_id',{
+        templateUrl: 'views/eventos/edit.html',
+        controller: 'eventoseditController'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

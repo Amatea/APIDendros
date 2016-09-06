@@ -1,0 +1,60 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+
+<h3>Agregar Tarea:</h3>
+
+<form class="form-horizontal" name="myForm1">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Tarea ::</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="tarea.titulo"  required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Responsable ::</label>
+        <div class="col-sm-10">
+            <input type="text"  ng-model="tarea.responsable"  required >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Prioridad ::</label>
+        <div class="col-sm-10">
+            <input type="text" list='prioridad' ng-model="tarea.prioridad"  name="Alta"  required />
+                <datalist id='prioridad'>
+                    <option label='Alta' value='Alta'>
+                    <option label='Media' value='Media'>
+                    <option label='Baja' value='Baja'>
+                </datalist>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Fecha Inicio ::</label>
+        <div class="col-sm-10">
+            <input type="date" ng-model="tarea.fecha1"  placeholder="No" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Fecha Finalización ::</label>
+        <div class="col-sm-10">
+            <input type="date" ng-model="tarea.fecha2"  placeholder="No" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Estado ::</label>
+        <div class="col-sm-10">
+            <input type="text" list='estado' ng-model="tarea.estado"  required>
+                <datalist id='estado'>
+                    <option label='Pendiente' value='Pendiente'>
+                </datalist>
+        </div>
+    </div>
+ 
+</form>
+
+<hr>
+<a ng-href="#/tareas">
+<button class="btn btn-success" ng-click="addTarea()" >
+    <span class="glyphicon glyphicon-save"></span>Guardar
+</button>
+</a>

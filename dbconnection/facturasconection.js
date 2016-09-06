@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-    host     : 'localhost',
+   host     : '104.131.122.114',
     user     : 'root',
-    password : 'mysql'
+    password : 'cibsolar1609'
 });
 
 function facturas() {

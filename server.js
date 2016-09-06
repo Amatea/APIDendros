@@ -8,7 +8,14 @@ var methodOverride 	= require('method-override');
 var passport 		= require('passport');
 var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
+var mongoose = require('mongoose');
+var dbName = 'GeoDB';
+var connectionString = 'mongodb://localhost:27017/' + dbName;
+mongoose.connect(connectionString);
 
+var geoService = require('./services/georoute');
+var tareaService = require('./services/tarearoute');
+var eventoService = require('./services/eventoroute');
 var myService=require('./services/route');
 var jornadaService=require('./services/jornadaroute');
 var inventarioService=require('./services/inventarioroute');
@@ -20,6 +27,7 @@ var proveedorService=require('./services/proveedorroute');
 var clienteService=require('./services/clienteroute');
 var formularioService=require('./services/formularioroute');
 var aveService=require('./services/averoute');
+
 
 var app = express();
 
@@ -50,8 +58,11 @@ app.use('/services/proveedorroute', proveedorService);
 app.use('/services/clienteroute', clienteService);
 app.use('/services/formularioroute', formularioService);
 app.use('/services/averoute', aveService);
+app.use('/api', geoService);
+app.use('/api', tareaService);
+app.use('/api', eventoService);
 
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'));
 
-console.log("Server started");
+console.log("Server started on 8080");

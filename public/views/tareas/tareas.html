@@ -1,0 +1,58 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_tarea">
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-user"></span> Crear Tarea
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Editar</th>
+            <th>Completada</th>
+            <th> Descripcion</a></th>
+            <th> Responsable</a></th>
+            <th> Prioridad</th>
+            <th> Fecha Inicio</th>
+            <th> Fecha Finalizacion</th>
+            <th> Estado</a></th>
+            
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="t in tareas | orderBy : '- _id' | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Editar
+                </button>
+                </a>
+            </td>
+            <td><input type="checkbox"  ng-click="tachada(t)" ></td>
+            <td class="done-{{t.estado}}" >{{ t.titulo }}</td>
+            <td>{{ t.responsable }}</td>
+            <td>
+               <button class="btn" ng-class="{Alta:'btn-danger', Media:'btn-warning', Baja:'btn-success'}[t.prioridad]">{{ t.prioridad }}</button>
+            </td>
+            <td>{{ t.fecha1 | date}}</td>
+            <td>{{ t.fecha2 | date}} </td> 
+            <td>
+	            <button class="btn" ng-class="{Cumplida:'btn-success', Pendiente:''}[t.estado]" ng-click="estadoTarea(t);">{{t.estado}}
+	            </button>
+        	</td>
+    
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    Numero de Tareas:: {{remaining()}} of {{getTotaltareas()}}  

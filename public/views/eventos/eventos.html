@@ -1,0 +1,49 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_evento">
+        <button class="btn btn-success" ng-click="clickCreate()">
+            <span class="glyphicon glyphicon-user"></span> Crear Evento
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
+
+    <table class="table table-striped ">
+    
+        <thead>
+        <tr>
+            <th>Editar</th>
+            <th>Titulo</th>
+            <th> Organizacion</a></th>
+            <th> Observaciones</a></th>
+            <th> Registrado por</th>
+            <th> Fecha </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="e in eventos | orderBy : '- fecha' | filter:keywords ">
+            <td>
+                
+                <a href="#/editar_eventos/{{e._id}}"><button  class="btn" >
+                    <span class="glyphicon glyphicon-pencil"></span>Editar
+                </button></a>
+              
+            </td>
+            <td>{{ e.titulo }}</td>
+            <td>{{ e.organizacion }}</td>
+            <td>{{ e.observaciones }}</td>
+            <td>{{ e.registrado }}</td>
+            <td>{{ e.fecha | date}}</td>
+   
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    Numero de Eventos:: {{getTotaleventos()}}
+    

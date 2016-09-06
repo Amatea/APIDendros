@@ -71,13 +71,13 @@ app.controller("ArbolDetailCtrl", function ($http, $scope, $routeParams){
   
 });
 
-app.controller("jornadaController", function ($scope,$http, userServices){
+app.controller("jornadaController", function ($scope,$http, userServices, GEO){
     $http.post("/services/jornadaroute/display").success(function(response) {
 
         console.log("response");
         userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
+         $scope.pageUsers=userServices.getPage();
+        
     });
 
 
@@ -89,6 +89,26 @@ app.controller("jornadaController", function ($scope,$http, userServices){
         userServices.setPageIndex(id);
         $scope.getCurrentPage();
     };
+
+    angular.extend($scope, {
+                yanaconas: {
+                    lat: 3.423004,
+                    lng: -76.606897,
+                    zoom: 15
+                },
+                defaults: {
+                    zoomAnimation: false,
+                    markerZoomAnimation: false,
+                    fadeAnimation: false
+                },
+                markers: {
+                    london: {
+                        lat: 51.505,
+                        lng: -0.09,
+                    }
+                }
+            });
+
 
 });
 
@@ -277,7 +297,7 @@ app.controller("facturalistController", function ($scope, $http, $routeParams, u
 
 });
 
-app.controller("facturaController", function ($http, $scope) {
+app.controller("facturaController", function ($http, $scope, $modal) {
     $scope.factura={};
     $scope.submitCreate=  function() {
         
@@ -286,6 +306,14 @@ app.controller("facturaController", function ($http, $scope) {
             console.log("response");
 
         });
+    };
+
+    $scope.showModalcliente=function(){
+        $scope.nuevoMiembro={};
+            var modalInstance = $modal.open({
+                templateUrl: 'views/facturas/modal_clientes.html',
+                controller: 'clientelistController'
+            })
     };
 
 });
@@ -413,10 +441,103 @@ app.controller("avesDetailCtrl", function ($http, $scope, $routeParams){
                 console.log('Error:' + data);
         });
     
-  
 });
 
+app.controller('tareasController', function($scope, $http, $routeParams, $location, Tareas){
+
+    $scope.tareas=Tareas.query();
+
+    $scope.tarea = new Tareas();  //crear nombre
+
+    $scope.addTarea = function() {
+    $scope.tarea.$save() 
+    };
+
+    $scope.estadoTarea = function(tareas){
+        tareas.estado = (tareas.estado=="Cumplida" ? "Pendiente" : "Cumplida");
+        $http.put("api/tareas/"+tareas._id,{estado:tareas.estado});
+    };
 
 
+    $scope.dato = Tareas.get({id: $routeParams.id})
+
+    $scope.getTotaltareas = function () {
+    return $scope.tareas.length;
+
+  };
+
+  $scope.fecha = new Date();
+  $scope.f1 = $scope.fecha.getTime();
+  
+  
+
+  $scope.total2 = function(){
+        var total = 0;
+        angular.forEach($scope.tareas, function(item){
+            total = item.fecha1.getTime();
+        })
+
+        return total;
+    }
+  $scope.f2 = function () {
+       
+     if($scope.total2 == $scope.fecha){
+        console.log('cualquier cosas')
+       
+
+        
+}
+  }
+ 
+    $scope.tachada = function(tareas){
+        tareas.done = (tareas.done=="true" ? "false" : "true");
+        $http.put("api/tareas/"+tareas._id,{done:tareas.done});
+    };
+
+    $scope.remaining = function() {
+        var count = 0;
+        angular.forEach($scope.tareas, function(item) {
+        count += item.estado ? 0 : 1;
+        });
+
+        return count;
+  };
+    
+})
+
+app.controller('eventoseditController', function($scope, $http, $routeParams, $location, Eventos){
+
+  
+    $scope.updateEvento = function (){
+        Eventos.update($scope.dato);
+        $location.path('/eventos');
+    };
+
+    $scope.dato = Eventos.show({id: $routeParams._id})
 
 
+})
+
+
+app.controller('eventosController', function($scope, $http, $routeParams, $location, Eventos){
+  $scope.eventos=Eventos.query();
+
+    $scope.evento = new Eventos();  //crear nombre
+
+    $scope.addEvento = function() {
+    $scope.evento.$save() 
+    };
+    
+    $scope.dato = Eventos.get({id: $routeParams._id})
+
+    $scope.getTotaleventos = function () {
+        return $scope.eventos.length;
+      };
+
+
+    
+    
+    
+
+
+})
