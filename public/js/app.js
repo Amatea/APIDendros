@@ -151,7 +151,7 @@ var app = angular.module('app', [
 
       .when('/lista_facturas',{
         templateUrl: 'views/facturas/lista_facturas.html',
-        controller: 'facturalistController'
+        controller: 'facturaController'
         
       })
 

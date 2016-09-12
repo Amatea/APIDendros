@@ -267,45 +267,19 @@ app.controller("proveedormodallistController", function ($scope, $http, $routePa
 
 });
 
-app.controller("facturalistController", function ($scope, $http, $routeParams, userServices){
-    $http.get("/services/facturaroute/facturasdisplay").success(function(response) {
+app.controller("facturaController", function ($scope, $http, $routeParams, Facturas){
 
-        console.log("response");
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
-    });
+    $scope.facturas=Facturas.query();
 
+    $scope.factura = new Facturas();
 
-    $scope.getCurrentPage = function() {
-        $scope.pageUsers=userServices.getPage();
+    $scope.addFactura = function() {
+        $scope.factura.$save() 
     };
-
-
-
-    $scope.setPageIndex =function(id) {
-        userServices.setPageIndex(id);
-        $scope.getCurrentPage();
-    };
-
-
+    
     $scope.changeFacturasStatus = function(facturas){
         facturas.estado = (facturas.estado=="Pagada" ? "Pendiente" : "Pagada");
-        $http.put("services/facturaroute/estadofactura/"+facturas.factura_id,{estado:facturas.estado});
-    };
-
-
-});
-
-app.controller("facturaController", function ($http, $scope, $modal) {
-    $scope.factura={};
-    $scope.submitCreate=  function() {
-        
-        $http.put("/services/facturaroute/agregarfactura",$scope.factura).success(function(response) {
-
-            console.log("response");
-
-        });
+        $http.put("api/facturas/"+facturas._id,{estado:facturas.estado});
     };
 
     $scope.showModalcliente=function(){
@@ -315,6 +289,7 @@ app.controller("facturaController", function ($http, $scope, $modal) {
                 controller: 'clientelistController'
             })
     };
+
 
 });
 
@@ -450,7 +425,7 @@ app.controller('tareasController', function($scope, $http, $routeParams, $locati
     $scope.tarea = new Tareas();  //crear nombre
 
     $scope.addTarea = function() {
-    $scope.tarea.$save() 
+        $scope.tarea.$save() 
     };
 
     $scope.estadoTarea = function(tareas){
@@ -525,7 +500,7 @@ app.controller('eventosController', function($scope, $http, $routeParams, $locat
     $scope.evento = new Eventos();  //crear nombre
 
     $scope.addEvento = function() {
-    $scope.evento.$save() 
+        $scope.evento.$save() 
     };
     
     $scope.dato = Eventos.get({id: $routeParams._id})
@@ -533,11 +508,5 @@ app.controller('eventosController', function($scope, $http, $routeParams, $locat
     $scope.getTotaleventos = function () {
         return $scope.eventos.length;
       };
-
-
-    
-    
-    
-
 
 })

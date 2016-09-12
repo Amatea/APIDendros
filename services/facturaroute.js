@@ -1,36 +1,97 @@
 var express = require('express');
-var facturas = require('../dbconnection/facturasconection.js');
+var Factura = require('../dbconnection/facturaconection.js');
 
-var facturaroute = express.Router();
+var facturarouter = express.Router();
 
-
-facturaroute.use(function(req,res,next){
+facturarouter.use(function(req,res,next){
     console.log('something is happening');
     next();
 });
 
-facturaroute.get('/facturasdisplay',function(req,res,next){
-    facturas.facturasdisplay(req,function(result){
-        res.send(result);
-   });
+facturarouter.route('/facturas')
+  .get(function(req, res) {
+    Factura.find(function(err, factura) {
+      if (err) {
+        return res.send(err);
+      }
+        res.json(factura);
+    });
 });
 
-facturaroute.get('/facturaDetail/:factura_id',function(req,res){
-    facturas.displayDetail(req,function(result){
-        res.send(result);
-   });
+facturarouter.route('/facturas')
+  .post(function(req, res) {
+  var factura = new Factura(req.body);
+
+  factura.save(function(err) {
+    if (err) {
+      return res.send(err);
+    }
+    res.send({ message: 'Factura Added' });
+  });
 });
 
-facturaroute.put('/agregarfactura',function(req,res){
-    facturas.agregarfactura(req,function(result){
-        res.send(result);
-   });
+facturarouter.route('/facturas')
+  .get(function(req, res) {
+    Factura.find(function(err, factura) {
+      if (err) {
+        return res.send(err);
+      }
+      res.json(factura);
+    });
+  })
+
+  .post(function(req, res) {
+    var factura = new Factura(req.body);
+
+    factura.save(function(err) {
+      if (err) {
+        return res.send(err);
+      }
+      res.send({ message: 'Factura Added' });
+    });
+  });
+
+facturarouter.route('/facturas/:id')
+  .put(function(req,res){
+     Factura.findOne({ _id: req.params.id }, function(err, factura) {
+        if (err) {
+          return res.send(err);
+        }
+
+        for (prop in req.body) {
+          factura[prop] = req.body[prop];
+        }
+    // save 
+        factura.save(function(err) {
+          if (err) {
+            return res.send(err);
+          }
+        res.json({ message: 'factura updated!' });
+    });
+  });
 });
 
-facturaroute.put('/estadofactura/:factura_id',function(req,res){
-    facturas.estadofactura(req,function(result){
-        res.send(result);
-   });
+facturarouter.route('/facturas/:id')
+    .get(function(req, res) {
+      Factura.findOne({ _id: req.params.id}, function(err, factura) {
+        if (err) {
+          return res.send(err);
+        }
+        res.json(factura);
+  });
 });
 
-module.exports = facturaroute;
+facturarouter.route('/facturas/:id')
+    .delete(function(req, res) {
+      Factura.remove({
+        _id: req.params.id
+      }, function(err, factura) {
+       if (err) {
+         return res.send(err);
+      }
+    res.json({ message: 'Satisfactoriamente deleted' });
+  });
+});
+
+
+module.exports = facturarouter;

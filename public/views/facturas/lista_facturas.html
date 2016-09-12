@@ -6,7 +6,7 @@
   <div class="col-xs-12 col-md-8">
     <a ng-href="#/crear_factura">
         <button class="btn btn-success" ng-click="clickCreate()">
-            <span class="glyphicon glyphicon-user"></span>Crear Nueva Factura
+            <span class="glyphicon glyphicon-user"></span> Crear Nueva Factura
         </button>
     </a>
   </div>
@@ -27,7 +27,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="factura in pageUsers | orderBy : '- numero_factura' | filter:keywords ">
+        <tr ng-repeat="factura in facturas | orderBy : '- numero_factura' | filter:keywords ">
             <td>
                 <a  ng-href="#/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
@@ -51,9 +51,4 @@
         </tbody>
     </table>
     <hr>
-
-    <ul class="pagination" ng-repeat="index in autoPaging"  >
-        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
-
-    </ul>
     

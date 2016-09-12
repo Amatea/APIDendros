@@ -52,7 +52,7 @@ app.use('/services/jornadaroute', jornadaService);
 app.use('/services/inventarioroute', inventarioService);
 app.use('/services/arbolroute', arbolService);
 app.use('/services/cotizacionroute', cotizacionService);
-app.use('/services/facturaroute', facturaService);
+app.use('/api', facturaService);
 app.use('/services/pagoroute', pagoService);
 app.use('/services/proveedorroute', proveedorService);
 app.use('/services/clienteroute', clienteService);

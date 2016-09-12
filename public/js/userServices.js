@@ -49,6 +49,13 @@ app.factory('Tareas', ['$resource', function($resource){
     })
 }]);
 
+app.factory('Facturas', ['$resource', function($resource){
+    return $resource('api/facturas/:id', {id: '@_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+    })
+}]);
+
 app.factory('Eventos', ['$resource', function($resource){
     return $resource('api/eventos/:id', {id: '@_id'}, {
         show: { method: 'GET'},
