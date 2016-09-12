@@ -294,24 +294,18 @@ app.controller("facturaController", function ($scope, $http, $routeParams, Factu
 });
 
 app.controller("siembralistController", function ($scope, $http, $routeParams, userServices){
-    $http.get("/services/inventarioroute/display").success(function(response) {
-
-        console.log("response");
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
+    
+    $scope.siembras = function () {
+        $http.get("/services/inventarioroute/display").success(function(response) {
+            console.log('response')
     });
+}
 
 
-    $scope.getCurrentPage = function() {
-        $scope.pageUsers=userServices.getPage();
-    };
+    
 
 
-    $scope.setPageIndex =function(id) {
-        userServices.setPageIndex(id);
-        $scope.getCurrentPage();
-    };
+    
 
 });
 

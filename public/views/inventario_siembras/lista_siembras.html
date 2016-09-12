@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="siembra in pageUsers | orderBy : '- fecha' | filter:keywords ">
+        <tr ng-repeat="siembra in siembra | orderBy : '- fecha' | filter:keywords ">
             <td>
                 <a  ng-href="#/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
