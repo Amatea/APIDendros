@@ -7,7 +7,7 @@ var router = express.Router();
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    if (username === "a" && password === "a") // nombre
+    if (username === "amatea" && password === "dendros1320") // nombre
       return done(null, {name: "admin"});
 
     return done(null, false, { message: 'Usuario Incorrecto' });
