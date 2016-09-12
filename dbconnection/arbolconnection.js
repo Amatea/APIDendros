@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
     host     : 'localhost',
     user     : 'root',
-    password : 'mysql'
+    password : 'cibsolar1609'
 });
 
 function arboles() {};
