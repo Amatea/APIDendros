@@ -1,24 +1,20 @@
 var mysql = require('mysql');
 
-var pool = mysql.createPool({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'cibsolar1609'
+var mongoose=require('mongoose');
+var Schema=mongoose.Schema;
+
+var TareaSchema = new Schema({
+  titulo: String,
+  responsable: String,
+  estado: String,
+  prioridad: String,
+  fecha1: Date,
+  fecha2: Date,
+  done: { type: String, default: false }
+  
 });
 
-function aves() {
-};
-
-aves.prototype.display=function(req,done){
-    var queryStr = 'SELECT * FROM aves;';
-    this.query(req,queryStr,done);
-
-};
-
-aves.prototype.displayDetail=function(req,done){
-    var queryStr = "select * FROM  aves WHERE aves_id ="+req.params.aves_id;
-    this.query(req,queryStr,done);
-};
+module.exports = mongoose.model('Tarea', TareaSchema);
 
 aves.prototype.agregarave=function(req,done){
         console.log(req.body);

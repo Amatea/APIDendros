@@ -484,7 +484,6 @@ app.controller('eventoseditController', function($scope, $http, $routeParams, $l
 
     $scope.dato = Eventos.show({id: $routeParams._id})
 
-
 })
 
 
