@@ -1,31 +1,97 @@
 var express = require('express');
-var aves = require('../dbconnection/aveconection.js');
+var Ave = require('../dbconnection/aveconection.js');
 
-var averoute = express.Router();
+var averouter = express.Router();
 
-
-averoute.use(function(req,res,next){
+averouter.use(function(req,res,next){
     console.log('something is happening');
     next();
 });
 
-averoute.post('/avesdisplay',function(req,res,next){
-    aves.display(req,function(result){
-        res.send(result);
-   });
+averouter.route('/aves')
+  .get(function(req, res) {
+    Ave.find(function(err, ave) {
+      if (err) {
+        return res.send(err);
+      }
+        res.json(ave);
+    });
 });
 
-averoute.get('/displayDetail/:aves_id',function(req,res){
-    aves.displayDetail(req,function(result){
-        res.send(result);
-   });
+averouter.route('/aves')
+  .post(function(req, res) {
+  var ave = new Ave(req.body);
+
+  ave.save(function(err) {
+    if (err) {
+      return res.send(err);
+    }
+    res.send({ message: 'ave Added' });
+  });
 });
 
-averoute.put('/agregarave',function(req,res){
-    aves.agregarave(req,function(result){
-        res.send(result);
-   });
+averouter.route('/aves')
+  .get(function(req, res) {
+    Ave.find(function(err, ave) {
+      if (err) {
+        return res.send(err);
+      }
+      res.json(ave);
+    });
+  })
+
+  .post(function(req, res) {
+    var ave = new Ave(req.body);
+
+    ave.save(function(err) {
+      if (err) {
+        return res.send(err);
+      }
+      res.send({ message: 'Ave Added' });
+    });
+  });
+
+averouter.route('/aves/:id')
+  .put(function(req,res){
+     Ave.findOne({ _id: req.params.id }, function(err, ave) {
+        if (err) {
+          return res.send(err);
+        }
+
+        for (prop in req.body) {
+          ave[prop] = req.body[prop];
+        }
+    // save the movie
+        ave.save(function(err) {
+          if (err) {
+            return res.send(err);
+          }
+        res.json({ message: 'Ave updated!' });
+    });
+  });
+});
+
+averouter.route('/aves/:id')
+    .get(function(req, res) {
+      Ave.findOne({ _id: req.params.id}, function(err, ave) {
+        if (err) {
+          return res.send(err);
+        }
+        res.json(ave);
+  });
+});
+
+averouter.route('/aves/:id')
+    .delete(function(req, res) {
+      Ave.remove({
+        _id: req.params.id
+      }, function(err, ave) {
+       if (err) {
+         return res.send(err);
+      }
+    res.json({ message: 'Satisfactoriamente deleted' });
+  });
 });
 
 
-module.exports = averoute;
+module.exports = averouter;

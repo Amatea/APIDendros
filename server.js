@@ -57,7 +57,7 @@ app.use('/services/pagoroute', pagoService);
 app.use('/services/proveedorroute', proveedorService);
 app.use('/services/clienteroute', clienteService);
 app.use('/services/formularioroute', formularioService);
-app.use('/services/averoute', aveService);
+app.use('/api', aveService);
 app.use('/api', geoService);
 app.use('/api', tareaService);
 app.use('/api', eventoService);
