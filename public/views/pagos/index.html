@@ -1,0 +1,50 @@
+<div>
+    <dendros-administrador></dendros-administrador>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <a ng-href="#/crear_pagos_mongo">
+        <button class="btn btn-success">
+            <span class="glyphicon glyphicon-user"> </span> Crear Pago
+        </button>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+</div>   
+<hr>
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Editar</th>
+            <th><a href=""  ng-click="sort('pago_id')">Id</a></th>
+            <th><a href=""  ng-click="sort('proveedor')"> Proveedor</a></th>
+            <th><a href=""  ng-click="sort('servicio')"> Tipo de Servicio</a></th>
+            <th> <a href=""  ng-click="sort('valor')">Valor</a></th>
+            <th> <a href=""  ng-click="sort('proyecto')">Proyecto</a></th>
+            <th> <a href=""  ng-click="sort('fecha')">Fecha</a></th>
+            <th> <a href=""  ng-click="sort('estado')">Estado</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="pago in pagosmongo | orderBy : '- _id' | filter:keywords ">
+            <td>
+                <a  ng-href="#/edit">
+                <button  class="btn" ng-click="clickEdit(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>Editar
+                </button>
+                </a>
+            </td>
+            <td >{{ pago.pagoId }} </td>
+            <td>{{ pago.proveedor }}</td>
+            <td>{{ pago.servicio }}</td>
+            <td>{{ pago.valor | currency: $ :0 }}</td>
+            <td>{{ pago.proyecto }}</td>
+            <td>{{ pago.fecha | date}} </td> 
+            <td>
+            <button class="btn" ng-class="{Pagado:'btn-success', Pendiente:''}[pago.estado]" ng-click="changePagosStatus(pago);">{{pago.estado}}</button>
+        	</td>
+        </tr>
+        </tbody>
+    </table>
+    

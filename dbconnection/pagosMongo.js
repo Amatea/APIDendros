@@ -2,13 +2,9 @@ var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 
 var PagoSchema = new Schema({
-  pago_id: Number,
+  pagoId: Number,
   proveedor: String,
   servicio: String,
-  nit: String,
-  banco: String,
-  tipo_cuenta: String,
-  numero_cuenta: String,
   valor: String,
   proyecto: String,
   estado: { type: String, default: 'Pendiente' },

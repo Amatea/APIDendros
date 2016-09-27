@@ -213,6 +213,16 @@ var app = angular.module('app', [
         controller: 'eventoseditController'
       })
 
+      .when('/pagos_mongo',{
+        templateUrl: 'views/pagos/',
+        controller: 'pagoController'
+      })
+
+      .when('/crear_pagos_mongo',{
+        templateUrl: 'views/pagos/crearpagoMongo.html',
+        controller: 'pagoController'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

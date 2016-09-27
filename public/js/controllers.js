@@ -151,7 +151,7 @@ app.controller("pagolistController", function ($scope, $http, $routeParams, $mod
 
 });
 
-app.controller("pagoController", function ($http, $scope, $modal) {
+app.controller("pagoController", function ($http, $scope, $modal, Pagos) {
     $scope.pago={};
     $scope.submitCreate=  function() {
         $http.post("/services/pagoroute/agregarpago",$scope.pago).success(function(response) {
@@ -168,6 +168,19 @@ app.controller("pagoController", function ($http, $scope, $modal) {
             })
     };
 
+    $scope.changePagosStatus = function(pagos){
+        pagos.estado = (pagos.estado=="Pagado" ? "Pendiente" : "Pagado");
+        $http.put("api/pagos/"+pagos._id,{estado:pagos.estado});
+    };
+
+
+    $scope.pagosmongo=Pagos.query();
+
+    $scope.pagom = new Pagos();  //crear nombre
+
+    $scope.addPago = function() {
+        $scope.pagom.$save() 
+    };
 });
 
 app.controller("cotizacionlistController", function ($scope, $http, $routeParams, userServices){
@@ -183,8 +196,6 @@ app.controller("cotizacionlistController", function ($scope, $http, $routeParams
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
     };
-
-
 
     $scope.setPageIndex =function(id) {
         userServices.setPageIndex(id);
@@ -219,19 +230,15 @@ app.controller("proveedorlistController", function ($scope, $http, $routeParams,
         $scope.autoPaging = userServices.autoPage()
     });
 
-
     $scope.getCurrentPage = function() {
         $scope.pageUsers=userServices.getPage();
     };
-
 
 
     $scope.setPageIndex =function(id) {
         userServices.setPageIndex(id);
         $scope.getCurrentPage();
     };
-
-
 });
 
 app.controller("proveedorController", function ($http, $scope) {
@@ -290,7 +297,6 @@ app.controller("facturaController", function ($scope, $http, $routeParams, Factu
             })
     };
 
-
 });
 
 app.controller("siembralistController", function ($scope, $http, $routeParams, userServices){
@@ -300,12 +306,6 @@ app.controller("siembralistController", function ($scope, $http, $routeParams, u
             console.log('response')
     });
 }
-
-
-    
-
-
-    
 
 });
 
