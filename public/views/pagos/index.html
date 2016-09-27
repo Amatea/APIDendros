@@ -36,7 +36,7 @@
                 </a>
             </td>
             <td >{{ pago.pagoId }} </td>
-            <td>{{ pago.proveedor }}</td>
+            <td><a href="#/proveedores/{{pago.proveedor}}">{{ pago.proveedor }}</a></td>
             <td>{{ pago.servicio }}</td>
             <td>{{ pago.valor | currency: $ :0 }}</td>
             <td>{{ pago.proyecto }}</td>

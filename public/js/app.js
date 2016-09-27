@@ -143,6 +143,12 @@ var app = angular.module('app', [
         
       })
 
+      .when('/proveedores/:proveedor',{
+        templateUrl: 'views/proveedores/lista_proveedores_modal.html',
+        controller: 'proveedorlistController'
+        
+      })
+
       .when('/crear_proveedor',{
         templateUrl: 'views/proveedores/crear_proveedor.html',
         controller: 'proveedorController'

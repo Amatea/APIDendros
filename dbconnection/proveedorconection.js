@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
     host     : 'localhost',
     user     : 'root',
-    password : 'cibsolar1609'
+    password : 'mysql'
 });
 
 
@@ -52,7 +52,7 @@ proveedores.prototype.query = function (req,queryString,done) {
             done({"msg": "DB connection error"});
         }
         else{
-            connection.query('use dendros');
+            connection.query('use prueba');
             connection.query( queryString, function(err, rows) {
                 // And done with the connection.
                 console.log(err);
