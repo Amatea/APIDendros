@@ -27,6 +27,7 @@ var proveedorService=require('./services/proveedorroute');
 var clienteService=require('./services/clienteroute');
 var formularioService=require('./services/formularioroute');
 var aveService=require('./services/averoute');
+var pagomongoService = require('./services/pagorouteMongo');
 
 
 var app = express();
@@ -61,6 +62,7 @@ app.use('/api', aveService);
 app.use('/api', geoService);
 app.use('/api', tareaService);
 app.use('/api', eventoService);
+app.use('/api', pagomongoService);
 
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'));

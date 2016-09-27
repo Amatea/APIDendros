@@ -72,6 +72,14 @@ app.factory('Aves', ['$resource', function($resource){
     })
 }]);
 
+app.factory('Pagos', ['$resource', function($resource){
+    return $resource('api/pagos/:id', {id: '@_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+        show: { method: 'GET'},
+    })
+}]);
+
     
     	
 	
