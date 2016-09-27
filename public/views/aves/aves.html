@@ -12,39 +12,34 @@
   <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
 </div>   
 <hr>
-
-    <table class="table table-striped ">
-        <thead>
-        <tr>
-            <th>Editar</th>
-            <th> Nombre Comun</a></th>
-            <th> Nombre Científico</a></th>
-            <th> Nombre Ingles</th>
-            <th> Familia </th>
-            <th> Estado </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="ave in pageUsers | orderBy : '- aves_id' | filter:keywords ">
-            <td>
-                <a  ng-href="#/aves">
-                <button  class="btn" ng-click="clickEdit(user.id)">
-                    <span class="glyphicon glyphicon-pencil"></span>Editar
-                </button>
-                </a>
-            </td>
-            <td><a href="#/avesDetalle/{{ave.aves_id}}">{{ ave.nombre_comun }}</td>
-            <td>{{ ave.nombre_cientifico }}</td>
-            <td>{{ ave.nombre_ingles }}</td>
-            <td>{{ ave.familia }}</td>
-            <td>{{ ave.estado_conservacion }}</td>
-        </tr>
-        </tbody>
-    </table>
-    <hr>
-
-    <ul class="pagination" ng-repeat="index in autoPaging"  >
-        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
-
-    </ul>
-    
+<table class="table table-striped ">
+    <thead>
+    <tr>
+        <th>Editar</th>
+        <th> Item</a></th>
+        <th> Nombre Comun</a></th>
+        <th> Nombre Científico</a></th>
+        <th> Nombre Ingles</th>
+        <th> Familia </th>
+        <th> Estado </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="ave in aves | orderBy : '- _id' | filter:keywords ">
+        <td>
+            <a  ng-href="#/aves">
+            <button  class="btn" ng-click="clickEdit(user.id)">
+                <span class="glyphicon glyphicon-pencil"></span>Editar
+            </button>
+            </a>
+        </td>
+        <td>{{ ave.ave }}</td>
+        <td><a href="#/avesDetalle/{{ave._id}}">{{ ave.nombre_comun }}</td>
+        <td>{{ ave.nombre_cientifico }}</td>
+        <td>{{ ave.nombre_ingles }}</td>
+        <td>{{ ave.familia }}</td>
+        <td>{{ ave.estado_conservacion }}</td>
+    </tr>
+    </tbody>
+</table>
+<hr>

@@ -64,6 +64,14 @@ app.factory('Eventos', ['$resource', function($resource){
     })
 }]);
 
+app.factory('Aves', ['$resource', function($resource){
+    return $resource('api/aves/:id', {id: '@_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+        show: { method: 'GET'},
+    })
+}]);
+
     
     	
 	

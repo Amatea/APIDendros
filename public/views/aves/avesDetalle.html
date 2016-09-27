@@ -1,27 +1,28 @@
-<h2>Aves ::</h2>
-<div class="container-fluid">
-  <div class="row" ng-repeat= 'data in aves'>
-  <div class="col-md-1"><img ng-src="{{mainImageUrl}}" ></div>
-	<div class="col-md-4"><h1>{{data.nombre_comun}}</h1></div>
-  	<div class="col-md-4"><p>Nombre Cientifico: <h4>{{data.nombre_cientifico }}</h4></p></div>
-  	<div class="col-md-4"><p>Nombre Ingles: <h4>{{data.nombre_ingles }}</h4></p></div>
-  	<div class="col-md-6"><p>Familia: <h4>{{data.familia}}</h4></p></div>
-  	<div class="col-md-6"><p>Rango altitudinal: <h4>{{data.rango_altura}}</h4></p></div>
-  	<div class="col-md-6"><p>Habitat: <h4>{{data.habitat}}</h4></p></div>
-  	<div class="col-md-6"><p>Descripcion del Ave: <h4>{{data.descripcion_ave}}</h4></p></div>
-  	<div class="col-md-6"><p>Actividad del Ave: <h4>{{data.actividad_ave}}</h4></p></div>
-  	<div class="col-md-6"><p>Amenaza: <h4>{{data.estado_conservacion}}</h4></p></div>
-  	<div class="col-md-6"><p>Coordenada: <h4>{{data.coordenada}}</h4></p></div>
-  	<div class="col-md-6"><p>Canto: <h4>{{data.canto}}</h4></p></div>
-  	<div class="col-md-6"><p>Foto Macho: <h4>{{data.foto_macho}}</h4></p></div>
-  	<div class="col-md-6"><p>Foto Hembra: <h4>{{data.foto_hembra}}</h4></p></div>
-  	<div class="col-md-6"><p>Foto: <h4>{{data.foto1}}</h4></p></div>
-  	<div class="col-md-6"><p>Foto: <h4>{{data.foto2}}</h4></p></div>
-  	<div class="col-md-6"><p>Fotografias por: <h4>{{data.fotografo}}</h4></p></div>
-<ul >
-  <li ng-repeat="img in proyectos.images">
-    <img ng-src="{{img}}" ng-click="setImage(img)">
-  </li>
-</ul>
-	</div>
+<div class="noticias_titulo">
+	<h1>Aves ::</h1>
 </div>
+<section class="noticias_detalle">
+	<h3 >Nombre Comun::{{dato.nombre_comun}}</h3>
+	<p>Numero Ave:: {{dato.ave}}</p>
+	<p>Nombre Cientifico:: {{dato.nombre_cientifico }}</p>
+	<p>nombre ingles:: {{dato.nombre_ingles }}</p>
+	<p>Familia:: {{dato.familia}}</p>
+	<p>Rango altitudinal: {{dato.rango_altura}}</p>
+	<p>Habitat: {{dato.habitat}}</p>
+	<p>Descripcion: {{dato.descripcion_ave}}</p>
+	<p>Estado de conservacion: {{dato.estado_conservacion}}</p>
+	<p>Coordenada:: {{dato.coordenada}}</p>
+	<p>Canto:: {{dato.canto}}</p>
+	<p>Foto Macho:: {{dato.foto_macho}}</p>
+	<p>Foto Hembra:: {{dato.foto_hembra}}</p>
+	<p>Fotografo:: {{dato.fotografo}}</p>
+
+	<h6 class="noticias_fecha">{{dato.fecha |  date:'medium'}}</h6>
+</div>
+</section>
+<hr>
+<section>
+	<div class="noticias_botones">
+		<a href="#/inicio.html"><md-button class="md-raised md-primary md-hue-3">Volver Inicio</md-button></a>
+	</div>
+</section>

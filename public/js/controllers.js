@@ -364,51 +364,29 @@ app.controller("crearclienteController", function ($http, $scope) {
 
 });
 
-app.controller("avesController", function ($scope, $http, $routeParams, userServices){
-    $http.post("/services/averoute/avesdisplay").success(function(response) {
+app.controller("avesController", function ($scope, $http, $routeParams, $location, Aves){
+    
+    $scope.aves = Aves.query();
 
-        console.log("response");
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
-    });
+    $scope.ave = new Aves();  //crear nombre
 
-
-    $scope.getCurrentPage = function() {
-        $scope.pageUsers=userServices.getPage();
+    $scope.addAve = function() {
+        $scope.ave.$save() 
     };
 
-    $scope.setPageIndex =function(id) {
-        userServices.setPageIndex(id);
-        $scope.getCurrentPage();
+    $scope.updateAve = function (){
+        Aves.update($scope.dato);
+        $location.path('/aves');
     };
 
 });
 
-app.controller("avesCrearController", function ($http, $scope) {
-    $scope.ave={};
-    $scope.submitCreate=  function() {
-        
-        $http.put("/services/averoute/agregarave",$scope.ave).success(function(response) {
+app.controller("avesDetailCtrl", function ($scope, $routeParams, Aves){
 
-            console.log("response");
-
-        });
-    };
-
-});
-
-app.controller("avesDetailCtrl", function ($http, $scope, $routeParams){
-
-    $http.get('/services/averoute/displayDetail/' + $routeParams.aves_id)
-      .success(function(data){
-        $scope.aves = data
-        console.log(data)
-
-        })
-            .error(function(data) {
-                console.log('Error:' + data);
-        });
+   $scope.dato = Aves.show({id: $routeParams._id}, function(datos){
+       console.log(datos)
+   });
+    
     
 });
 
@@ -438,8 +416,6 @@ app.controller('tareasController', function($scope, $http, $routeParams, $locati
   $scope.fecha = new Date();
   $scope.f1 = $scope.fecha.getTime();
   
-  
-
   $scope.total2 = function(){
         var total = 0;
         angular.forEach($scope.tareas, function(item){
@@ -451,11 +427,8 @@ app.controller('tareasController', function($scope, $http, $routeParams, $locati
   $scope.f2 = function () {
        
      if($scope.total2 == $scope.fecha){
-        console.log('cualquier cosas')
-       
-
-        
-}
+        console.log('cualquier cosas') 
+    }
   }
  
     $scope.tachada = function(tareas){

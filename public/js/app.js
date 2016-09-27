@@ -92,11 +92,11 @@ var app = angular.module('app', [
 
       .when('/crear_ave',{
         templateUrl: 'views/aves/crear_ave.html',
-        controller: 'avesCrearController'
+        controller: 'avesController'
         
       })
 
-      .when('/avesDetalle/:aves_id',{
+      .when('/avesDetalle/:_id',{
         templateUrl: 'views/aves/avesDetalle.html',
         controller: 'avesDetailCtrl'
       })
