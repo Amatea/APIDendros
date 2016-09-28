@@ -3,7 +3,7 @@ var Schema=mongoose.Schema;
 
 var AveSchema = new Schema({
     
-  ave: Number,
+  aveId: Number,
   nombre_cientifico: String,
   nombre_ingles: String,
   nombre_comun: String,
