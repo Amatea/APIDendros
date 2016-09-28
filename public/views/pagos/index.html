@@ -35,7 +35,11 @@
                 </button>
                 </a>
             </td>
-            <td >{{ pago.pagoId }} </td>
+            <td>
+            	<button type="button" class="btn btn-info">
+                    {{ pago.pagoId }}
+            	</button>
+            </td>
             <td><a href="#/proveedores/{{pago.proveedorId}}">{{ pago.proveedor }}</a></td>
             <td>{{ pago.servicio }}</td>
             <td>{{ pago.valor | currency: $ :0 }}</td>
