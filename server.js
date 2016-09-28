@@ -16,17 +16,17 @@ mongoose.connect(connectionString);
 var geoService = require('./services/georoute');
 var tareaService = require('./services/tarearoute');
 var eventoService = require('./services/eventoroute');
-var myService=require('./services/route');
-var jornadaService=require('./services/jornadaroute');
-var inventarioService=require('./services/inventarioroute');
-var arbolService=require('./services/arbolroute');
-var cotizacionService=require('./services/cotizacionroute');
-var facturaService=require('./services/facturaroute');
-var pagoService=require('./services/pagoroute');
-var proveedorService=require('./services/proveedorroute');
-var clienteService=require('./services/clienteroute');
-var formularioService=require('./services/formularioroute');
-var aveService=require('./services/averoute');
+var myService = require('./services/route');
+var jornadaService = require('./services/jornadaroute');
+var inventarioService = require('./services/inventarioroute');
+var arbolService = require('./services/arbolroute');
+var cotizacionService = require('./services/cotizacionroute');
+var facturaService = require('./services/facturaroute');
+var pagoService = require('./services/pagoroute');
+var proveedorService = require('./services/proveedorroute');
+var clienteService = require('./services/clienteroute');
+var formularioService = require('./services/formularioroute');
+var aveService = require('./services/averoute');
 var pagomongoService = require('./services/pagorouteMongo');
 
 

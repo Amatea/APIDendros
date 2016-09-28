@@ -317,7 +317,9 @@ app.controller("crearclienteController", function ($http, $scope) {
 
 app.controller("avesController", function ($scope, $http, $routeParams, $location, Aves){
     
-    $scope.aves = Aves.get();
+    $scope.aves = Aves.query(function(dato) {
+        console.log(dato)
+    });
 
     $scope.ave = new Aves();  //crear nombre
 

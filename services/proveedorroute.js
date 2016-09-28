@@ -8,7 +8,7 @@ proveedorrouter.use(function(req,res,next){
     next();
 });
 
-proveedorrouter.route('/aves')
+proveedorrouter.route('/proveedores')
   .get(function(req, res) {
     Proveedor.find(function(err, proveedor) {
       if (err) {
