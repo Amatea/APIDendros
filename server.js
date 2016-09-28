@@ -8,8 +8,8 @@ var methodOverride 	= require('method-override');
 var passport 		= require('passport');
 var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
-var mongoose = require('mongoose');
-var dbName = 'GeoDB';
+var mongoose        = require('mongoose');
+var dbName          = 'GeoDB';
 var connectionString = 'mongodb://localhost:27017/' + dbName;
 mongoose.connect(connectionString);
 

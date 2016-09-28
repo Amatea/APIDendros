@@ -22,6 +22,7 @@
     "express-session": "^1.11.3",
     "generator": "^1.0.1",
     "method-override": "^2.3.3",
+    "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.6.0",
     "mysql": "2.7.0",
     "mysql-activerecord": "^0.8.6",

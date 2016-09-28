@@ -1,9 +1,14 @@
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
+var autoIncrement = require('mongoose-auto-increment');
+
+var connection = mongoose.createConnection("mongodb://localhost:27017/GeoDB");
+ 
+autoIncrement.initialize(connection);
 
 var ProveedorSchema = new Schema({
     
-  proveedorId: Number,
+  proveedorId: { type: Number},
   razon_social: String,
   NIT: String,
   direccion: String,
@@ -14,5 +19,5 @@ var ProveedorSchema = new Schema({
   fecha: { type: Date, default: Date.now }
 
 });
-
+ProveedorSchema.plugin(autoIncrement.plugin, { model: 'Proveedor', field: 'proveedorId' });
 module.exports = mongoose.model('Proveedor', ProveedorSchema);
