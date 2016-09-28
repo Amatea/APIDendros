@@ -139,13 +139,13 @@ var app = angular.module('app', [
 
       .when('/lista_proveedores',{
         templateUrl: 'views/proveedores/lista_proveedores.html',
-        controller: 'proveedorlistController'
+        controller: 'proveedorController'
         
       })
 
-      .when('/proveedores/:proveedor',{
+      .when('/proveedores/:id',{
         templateUrl: 'views/proveedores/lista_proveedores_modal.html',
-        controller: 'proveedorlistController'
+        controller: 'proveedorController'
         
       })
 

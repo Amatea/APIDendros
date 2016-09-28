@@ -221,34 +221,14 @@ app.controller("cotizacionController", function ($http, $scope) {
   
 });
 
-app.controller("proveedorlistController", function ($scope, $http, $routeParams, userServices){
-    $http.get("/services/proveedorroute/proveedoresdisplay").success(function(response) {
 
-        console.log("response");
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
-    });
+app.controller("proveedorController", function ($http, $scope, $routeParams, Proveedores) {
+   $scope.proveedores=Proveedores.query();
 
-    $scope.getCurrentPage = function() {
-        $scope.pageUsers=userServices.getPage();
-    };
+    $scope.proveedor = new Proveedores();
 
-
-    $scope.setPageIndex =function(id) {
-        userServices.setPageIndex(id);
-        $scope.getCurrentPage();
-    };
-});
-
-app.controller("proveedorController", function ($http, $scope) {
-    $scope.proveedor={};
-    $scope.submitCreate=  function() {
-        
-        $http.put("/services/proveedorroute/agregarproveedor",$scope.proveedor).success(function(response) {
-            console.log("response");
-
-        });
+    $scope.addProveedor = function() {
+        $scope.proveedor.$save() 
     };
   
 });

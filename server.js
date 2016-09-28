@@ -55,7 +55,7 @@ app.use('/services/arbolroute', arbolService);
 app.use('/services/cotizacionroute', cotizacionService);
 app.use('/api', facturaService);
 app.use('/services/pagoroute', pagoService);
-app.use('/services/proveedorroute', proveedorService);
+app.use('/api', proveedorService);
 app.use('/services/clienteroute', clienteService);
 app.use('/services/formularioroute', formularioService);
 app.use('/api', aveService);

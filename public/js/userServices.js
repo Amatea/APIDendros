@@ -80,6 +80,14 @@ app.factory('Pagos', ['$resource', function($resource){
     })
 }]);
 
+app.factory('Proveedores', ['$resource', function($resource){
+    return $resource('api/proveedores/:id', {id: '@_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+        show: { method: 'GET'},
+    })
+}]);
+
     
     	
 	
