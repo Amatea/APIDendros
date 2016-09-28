@@ -5,97 +5,60 @@
 <h3>Agregar Pago:</h3>
 
 <form class="form-horizontal" name="myForm1">
-    <div class="form-group">
-        <label class="col-sm-2 control-label"> <a href=""  ng-click="showModal()" >Numero Proveedor:</a></label>
+  <div class="form-group">
+        <label class="col-sm-2 control-label">Número Pago:</label>
         <div class="col-sm-10">
-            <input type="number"  ng-model="pago.proveedor_id"  placeholder="No" required>      
+            <input type="number" ng-model="pagom.pagoId"  placeholder="Número" required>
+        </div>
+    </div>
+   <div class="form-group">
+        <label class="col-sm-2 control-label">Nombre Proveedor:</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="pagom.proveedor"  placeholder="Nombre" required>
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Tipo de Servicio:</label>
         <div class="col-sm-10">
-            <input type="text" list='servicio' ng-model="pago.servicio_id"  required>
+            <input type="text" list='servicio' ng-model="pagom.servicio"  required>
                 <datalist id='servicio'>
-                    <option label='Nomina' value='1'>
-                    <option label='Honorario' value='2'>
-                    <option label='Tallerista' value='3'>
-                    <option label='Logistica' value='4'>
-                    <option label='Interprete' value='5'>
-                    <option label='Fotografia' value='6'>
-                    <option label='Diseño' value='7'>
-                    <option label='Transporte' value='8'>
-                    <option label='Paramedico' value='9'>
-                    <option label='Generales' value='10'>
+                    <option label='Nomina' value='Nomina'>
+                    <option label='Honorario' value='Honorario'>
+                    <option label='Tallerista' value='Tallerista'>
+                    <option label='Logistica' value='Logistica'>
+                    <option label='Interprete' value='Interprete'>
+                    <option label='Fotografia' value='Fotografia'>
+                    <option label='Diseño' value='Diseño'>
+                    <option label='Transporte' value='Transporte'>
+                    <option label='Paramedico' value='Paramedico'>
+                    <option label='Generales' value='Generales'>
                 </datalist>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Nombre del Proveedor:</label>
-        <div class="col-sm-10">
-            <input type="text" ng-model="pago.razon_social"  placeholder="Nombre" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">NIT:</label>
-        <div class="col-sm-10">
-            <input type="number" ng-model="pago.nit"  placeholder="No" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Banco:</label>
-        <div class="col-sm-10">
-            <input type="text" ng-model="pago.banco"  placeholder="Nombre" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Tipo de Cuenta:</label>
-        <div class="col-sm-10">
-            <input type="text" list='tipo' ng-model="pago.tipo_cuenta"  placeholder="Nombre" required>
-                <datalist id='tipo'>
-                    <option label='Ahorros' value='ahorros'>
-                    <option label='Corriente' value='corriente'>
-                </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Numero de Cuenta:</label>
-        <div class="col-sm-10">
-            <input type="number" ng-model="pago.numero_cuenta"  placeholder="No" required>
-        </div>
-    </div>
+    
     <div class="form-group">
         <label class="col-sm-2 control-label">Valor:</label>
         <div class="col-sm-10">
-            <input type="text" ng-model="pago.valor"  placeholder="No" required>
+            <input type="text" ng-model="pagom.valor"  placeholder="No" required>
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Proyecto:</label>
         <div class="col-sm-10">
-            <input type="text" ng-model="pago.proyecto"  placeholder="No" required>
+            <input type="text" ng-model="pagom.proyecto"  placeholder="Nombre" required>
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Fecha:</label>
         <div class="col-sm-10">
-            <input type="date" ng-model="pago.fecha"  placeholder="No" required>
+            <input type="date" ng-model="pagom.fecha"  placeholder="No" required>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Estado:</label>
-        <div class="col-sm-10">
-            <input type="text" list='estado' ng-model="pago.estado"  required>
-                <datalist id='estado'>
-                    <option label='Pendiente' value='Pendiente'>
-                </datalist>
-        </div>
-    </div>
- 
 </form>
 
 <hr>
 <a ng-href="#/lista_pagos">
-<button class="btn btn-success" ng-click="submitCreate()" >
+<button class="btn btn-success" ng-click="addPago()" >
     <span class="glyphicon glyphicon-save"></span>Guardar
 </button>
 </a>

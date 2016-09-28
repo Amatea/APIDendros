@@ -126,39 +126,10 @@ app.controller("jornadaCrearController", function ($http, $scope) {
 });
 
 
-app.controller("pagolistController", function ($scope, $http, $routeParams, $modal, userServices){
-    $http.get("/services/pagoroute/pagosdisplay").success(function(response) {
 
-        console.log("response");
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
-    });
 
-    $scope.getCurrentPage = function() {
-        $scope.pageUsers=userServices.getPage();
-    };
-
-    $scope.setPageIndex =function(id) {
-        userServices.setPageIndex(id);
-        $scope.getCurrentPage();
-    };
-
-    $scope.changePagosStatus = function(pagos){
-        pagos.estado = (pagos.estado=="Pagado" ? "Pendiente" : "Pagado");
-        $http.put("services/pagoroute/estadopago/"+pagos.pago_id,{estado:pagos.estado});
-    };
-
-});
-
-app.controller("pagoController", function ($http, $scope, $modal, Pagos) {
-    $scope.pago={};
-    $scope.submitCreate=  function() {
-        $http.post("/services/pagoroute/agregarpago",$scope.pago).success(function(response) {
-            console.log("response");
-
-        });
-    };
+app.controller("pagoController", function ($http, $scope, $modal, $location, Pagos) {
+    
 
     $scope.showModal=function(){
         $scope.nuevoMiembro={};
@@ -179,7 +150,7 @@ app.controller("pagoController", function ($http, $scope, $modal, Pagos) {
     $scope.pagom = new Pagos();  //crear nombre
 
     $scope.addPago = function() {
-        $scope.pagom.$save() 
+        $scope.pagom.$save()
     };
 });
 

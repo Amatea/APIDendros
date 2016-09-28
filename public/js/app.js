@@ -114,8 +114,8 @@ var app = angular.module('app', [
       })
 
       .when('/lista_pagos',{
-        templateUrl: 'views/pagos/lista_pagos.html',
-        controller: 'pagolistController'
+        templateUrl: 'views/pagos/',
+        controller: 'pagoController'
         
       })
 
@@ -217,16 +217,6 @@ var app = angular.module('app', [
       .when('/editar_eventos/:_id',{
         templateUrl: 'views/eventos/edit.html',
         controller: 'eventoseditController'
-      })
-
-      .when('/pagos_mongo',{
-        templateUrl: 'views/pagos/',
-        controller: 'pagoController'
-      })
-
-      .when('/crear_pagos_mongo',{
-        templateUrl: 'views/pagos/crearpagoMongo.html',
-        controller: 'pagoController'
       })
 
       .otherwise({
