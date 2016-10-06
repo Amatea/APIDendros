@@ -103,7 +103,7 @@ var app = angular.module('app', [
 
       .when('/editar_aves/:_id',{
         templateUrl: 'views/aves/edit.html',
-        controller: 'eventoseditController'
+        controller: 'aveseditController'
       })
 
       .when('/jornada_ecologica',{

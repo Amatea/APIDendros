@@ -343,6 +343,18 @@ app.controller("avesDetailCtrl", function ($scope, $routeParams, Aves){
     
 });
 
+app.controller('aveseditController', function($scope, $http, $routeParams, $location, Aves){
+
+  
+    $scope.updateEvento = function (){
+        Aves.update($scope.dato);
+        $location.path('/aves');
+    };
+
+    $scope.dato = Aves.show({id: $routeParams._id})
+
+})
+
 app.controller('tareasController', function($scope, $http, $routeParams, $location, Tareas){
 
     $scope.tareas=Tareas.query();

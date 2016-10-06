@@ -27,10 +27,10 @@
     <tbody>
     <tr ng-repeat="ave in aves | orderBy : '- _id' | filter:keywords ">
         <td>
-            <a  ng-href="#/aves">
-            <button  class="btn" ng-click="clickEdit(user.id)">
-                <span class="glyphicon glyphicon-pencil"></span>Editar
-            </button>
+            <a href="#/editar_aves/{{ave._id}}">
+                <button class="btn">
+                    <span class="glyphicon glyphicon-pencil"></span>Guardar
+                </button>
             </a>
         </td>
         <td>{{ ave.aveId }}</td>
