@@ -101,6 +101,11 @@ var app = angular.module('app', [
         controller: 'avesDetailCtrl'
       })
 
+      .when('/editar_aves/:_id',{
+        templateUrl: 'views/aves/edit.html',
+        controller: 'eventoseditController'
+      })
+
       .when('/jornada_ecologica',{
         templateUrl: 'views/jornada_ecologica.html',
         controller: 'jornadaController'
