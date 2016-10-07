@@ -17,6 +17,7 @@ var AveSchema = new Schema({
   habitat: String,
   descripcion_ave: String,
   estado_conservacion: String,
+  actividad_ave: String,
   coordenada: String,
   canto: String,
   foto_macho: String,
