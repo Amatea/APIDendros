@@ -1,5 +1,6 @@
 # configuration
 config.js
+env.sh
 
 # Logs
 logs
