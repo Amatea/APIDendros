@@ -331,6 +331,9 @@ app.controller("avesController", function ($scope, $http, $routeParams, $locatio
         Aves.update($scope.dato);
         $location.path('/aves');
     };
+
+    $scope.s3Url = 'https://s3-us-west-2.amazonaws.com/amateapp/DSC_0178.JPG';
+
    
 });
 

@@ -13,6 +13,29 @@ var dbName          = 'GeoDB';
 var connectionString = 'mongodb://localhost:27017/' + dbName;
 mongoose.connect(connectionString);
 
+var multer = require('multer');
+var ext = require('file-extension');
+var aws = require ('aws-sdk');
+var multerS3 = require('multer-s3');
+var config = require('./config');
+
+var s3 = new aws.S3({
+    accessKeyId: config.aws.accessKey,
+    secretAccessKey: config.aws.secretKey
+})
+
+var storage = multerS3({
+    s3: s3,
+    bucket: 'amateapp',
+    acl: 'public-read',
+    metadata: function(req, file, cb) {
+        cb(null, { fieldName: file.fieldName })
+    },
+    key: function (req, file, cd) {
+        cb(null, +Date.now() + '.' + ext(file.originalname))
+    }
+})
+
 var geoService = require('./services/georoute');
 var tareaService = require('./services/tarearoute');
 var eventoService = require('./services/eventoroute');

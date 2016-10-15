@@ -22,6 +22,7 @@
         <th> Nombre Ingles</th>
         <th> Familia </th>
         <th> Estado </th>
+        <th> Imagen </th>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +40,9 @@
         <td>{{ ave.nombre_ingles }}</td>
         <td>{{ ave.familia }}</td>
         <td>{{ ave.estado_conservacion }}</td>
+        <td>
+            <img ng-src="{{ave.foto_macho}}" width="200px" height="200px">
+        </td>
     </tr>
     </tbody>
 </table>
