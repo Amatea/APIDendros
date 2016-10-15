@@ -22,6 +22,7 @@
     "express-generator": "^4.12.4",
     "express-session": "^1.11.3",
     "file-extension": "^3.0.2",
+    "firebase": "^3.5.0",
     "generator": "^1.0.1",
     "method-override": "^2.3.3",
     "mongoose-auto-increment": "^5.0.1",
