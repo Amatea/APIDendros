@@ -10,7 +10,7 @@ var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
 var dbName          = 'GeoDB';
-var connectionString = 'mongodb://localhost:27017/' + dbName;
+var connectionString = 'mongodb://geoUser:cibsolar1609@104.131.122.114:27017/GeoDB';
 mongoose.connect(connectionString);
 
 var multer = require('multer');
