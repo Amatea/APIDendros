@@ -9,15 +9,16 @@ var passport 		= require('passport');
 var LocalStrategy 	= require('passport-local').Strategy;
 var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
-var dbName          = 'GeoDB';
-var connectionString = 'mongodb://geoUser:cibsolar1609@104.131.122.114:27017/GeoDB';
+
+var config = require('./config');
+var connectionString = 'mongodb://' + config.db.user + ':' + config.db.pwd + '@' + config.db.host + ':' + config.db.port + '/'+ config.db.name;
 mongoose.connect(connectionString);
 
 var multer = require('multer');
 var ext = require('file-extension');
 var aws = require ('aws-sdk');
 var multerS3 = require('multer-s3');
-var config = require('./config');
+
 
 var s3 = new aws.S3({
     accessKeyId: config.aws.accessKey,
