@@ -88,7 +88,7 @@ app.use('/api', tareaService);
 app.use('/api', eventoService);
 app.use('/api', pagomongoService);
 
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'));
 
-console.log("Server started on 8080");
+console.log("Server started on 3000");
