@@ -18,7 +18,15 @@
 	<p>Foto Hembra:: {{dato.foto_hembra}}</p>
 	<p>Fotografo:: {{dato.fotografo}}</p>
 	<h6 class="noticias_fecha">{{dato.fecha |  date:'medium'}}</h6>
-</div>
+</section>
+<section>
+	<div>
+		<img src="{{dato.foto_macho}}" alt="">
+	</div>
+	<div>
+		<button ng-click='sound.paused ? sound.play() : sound.pause()'>Play</button>
+ 		<button ng-click='sound.restart()'>Stop</button>
+	</div>
 </section>
 <hr>
 <section>
@@ -26,3 +34,5 @@
 		<a href="#/aves"><md-button class="md-raised md-primary md-hue-3">Volver Inicio</md-button></a>
 	</div>
 </section>
+
+

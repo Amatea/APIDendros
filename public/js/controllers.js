@@ -331,17 +331,16 @@ app.controller("avesController", function ($scope, $http, $routeParams, $locatio
         Aves.update($scope.dato);
         $location.path('/aves');
     };
-
-    $scope.s3Url = 'https://s3-us-west-2.amazonaws.com/amateapp/DSC_0178.JPG';
-
    
 });
 
-app.controller("avesDetailCtrl", function ($scope, $routeParams, Aves){
+app.controller("avesDetailCtrl", function ($scope, $routeParams, Aves, ngAudio){
 
    $scope.dato = Aves.show({id: $routeParams._id}, function(datos){
        console.log(datos)
    });
+
+   $scope.sound = ngAudio.load("https://s3-us-west-2.amazonaws.com/amateapp/aves/cantos/Penelope_perspicax.mp3"); // returns NgAudioObject
     
     
 });

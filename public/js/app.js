@@ -7,7 +7,8 @@ var app = angular.module('app', [
   'appControllers',
   'appDirectives',
   'leaflet-directive',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngAudio'
   ])
 
   .config(function($routeProvider, $locationProvider, $httpProvider) {
