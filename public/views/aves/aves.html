@@ -20,9 +20,9 @@
         <th> Nombre Comun</a></th>
         <th> Nombre Científico</a></th>
         <th> Nombre Ingles</th>
-        <th> Familia </th>
         <th> Estado </th>
         <th> Imagen </th>
+        <th> Canto </th>
     </tr>
     </thead>
     <tbody>
@@ -38,10 +38,12 @@
         <td><a href="#/avesDetalle/{{ave._id}}">{{ ave.nombre_comun }}</td>
         <td>{{ ave.nombre_cientifico }}</td>
         <td>{{ ave.nombre_ingles }}</td>
-        <td>{{ ave.familia }}</td>
         <td>{{ ave.estado_conservacion }}</td>
         <td>
             <img ng-src="{{ave.foto_macho}}" width="100px" height="100px">
+        </td>
+        <td>
+            <audio ng-src="{{ave.canto | trustUrl}}" controls></audio>
         </td>
     </tr>
     </tbody>

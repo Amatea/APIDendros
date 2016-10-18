@@ -88,6 +88,8 @@ app.factory('Proveedores', ['$resource', function($resource){
     })
 }]);
 
-    
-    	
-	
+app.filter('trustUrl', function ($sce) {
+    return function(url) {
+      return $sce.trustAsResourceUrl(url);
+    };
+});

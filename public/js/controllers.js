@@ -317,9 +317,8 @@ app.controller("crearclienteController", function ($http, $scope) {
 
 app.controller("avesController", function ($scope, $http, $routeParams, $location, Aves){
     
-    $scope.aves = Aves.query(function(dato) {
-        console.log(dato)
-    });
+    $scope.aves = Aves.query();
+    
 
     $scope.ave = new Aves();  //crear nombre
 
@@ -334,15 +333,12 @@ app.controller("avesController", function ($scope, $http, $routeParams, $locatio
    
 });
 
-app.controller("avesDetailCtrl", function ($scope, $routeParams, Aves, ngAudio){
-
+app.controller("avesDetailCtrl", function ($scope, $http, $routeParams, Aves){
+    
    $scope.dato = Aves.show({id: $routeParams._id}, function(datos){
        console.log(datos)
    });
 
-   $scope.sound = ngAudio.load("https://s3-us-west-2.amazonaws.com/amateapp/aves/cantos/Penelope_perspicax.mp3"); // returns NgAudioObject
-    
-    
 });
 
 app.controller('aveseditController', function($scope, $http, $routeParams, $location, Aves){

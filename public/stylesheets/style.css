@@ -30,3 +30,8 @@ a {
 	text-decoration: line-through;
 	color: grey;
 }
+
+.imagenAve {
+	width: 350px;
+	border-radius: 10%;
+}
