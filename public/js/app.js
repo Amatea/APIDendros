@@ -134,16 +134,8 @@ var app = angular.module('app', [
       .otherwise({
         redirectTo: '/'
       });
-
-  }) // end of config()
-  .run(function($rootScope, $http){
-    
-
-    // Logout function is available in any pages
-    $rootScope.logout = function(){
-      
-    };
-  });
+  })
+  
 
 
 

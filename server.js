@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var bodyParser = require('body-parser');
+var bodyParser      = require('body-parser');
 var morgan    		= require('morgan');
 var cookieParser 	= require('cookie-parser');
 var session   		= require('express-session');
@@ -9,7 +9,7 @@ var passport 		= require('passport');
 var passportlocal   = require('./config/passport');    
 var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
-
+var flash           = require('connect-flash');
 
 var config = require('./config');
 var connectionString = 'mongodb://' + config.db.user + ':' + config.db.pwd + '@' + config.db.host + ':' + config.db.port + '/'+ config.db.name;
