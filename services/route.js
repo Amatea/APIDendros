@@ -23,12 +23,12 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-var auth        = function(req, res, next){
-                    if (!req.isAuthenticated()) 
-                        res.send(401);
-                    else
-                    next();
-                    };
+var auth = function(req, res, next){
+  if (!req.isAuthenticated()) 
+      res.send(401);
+  else
+  next();
+  };
 
 router.use(function(req,res,next){
     console.log('something is happening');

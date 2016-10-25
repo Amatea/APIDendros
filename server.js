@@ -63,14 +63,18 @@ app.use(bodyParser.json() );
 app.use(bodyParser.urlencoded({ 
 	extended: true
 }));
-app.use(methodOverride());                  // simulate DELETE and PUT
+app.use(methodOverride());                  
 app.use(session({ 
 	resave: true,
     saveUninitialized: true,
     secret: 'Dendros' }));
-app.use(passport.initialize()); // Add passport initialization
-app.use(passport.session());    // Add passport initialization
+app.use(passport.initialize());
+app.use(passport.session());
+app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Cargar los archivos de enrutamiento
+  require('./services/indexRoutes')(app);
 
 app.use('/services/route', myService);
 app.use('/services/jornadaroute', jornadaService);

@@ -34,6 +34,16 @@ angular.module('appServices', [])
         };
     });
 
+app.factory('Authentication', [
+  function() {
+    this.user = window.user;
+
+    return {
+      user: this.user
+    };
+  }
+]);
+
 app.factory('GEO', ['$resource', function($resource){
     return $resource('api/GEO/:id', {id: '@_id'}, {
         update: {

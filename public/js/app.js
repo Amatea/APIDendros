@@ -61,7 +61,7 @@ var app = angular.module('app', [
     //================================================
     $routeProvider
       .when('/', {
-        templateUrl: '/views/main.html'
+        templateUrl: '/inicio.html'
       })
       .when('/admin', {
         templateUrl: 'views/admin.html',

@@ -1,5 +1,9 @@
 var appControllers = angular.module('appControllers', []);
 
+app.controller('inicioController', ['$scope', 'Authentication', '$window', '$routeParams',
+  function($scope, Authentication, $window, $routeParams, Articles) {
+    $scope.authentication = Authentication;
+  }]);
 
 app.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
   // This object will be filled by the form
