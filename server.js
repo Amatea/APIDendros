@@ -6,9 +6,10 @@ var cookieParser 	= require('cookie-parser');
 var session   		= require('express-session');
 var methodOverride 	= require('method-override');
 var passport 		= require('passport');
-var LocalStrategy 	= require('passport-local').Strategy;
+var passportlocal   = require('./config/passport');    
 var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
+
 
 var config = require('./config');
 var connectionString = 'mongodb://' + config.db.user + ':' + config.db.pwd + '@' + config.db.host + ':' + config.db.port + '/'+ config.db.name;
@@ -19,6 +20,7 @@ var ext = require('file-extension');
 var aws = require ('aws-sdk');
 var multerS3 = require('multer-s3');
 
+var passportlocal = passportlocal();
 
 var s3 = new aws.S3({
     accessKeyId: config.aws.accessKey,
@@ -40,7 +42,6 @@ var storage = multerS3({
 var geoService = require('./services/georoute');
 var tareaService = require('./services/tarearoute');
 var eventoService = require('./services/eventoroute');
-var myService = require('./services/route');
 var jornadaService = require('./services/jornadaroute');
 var inventarioService = require('./services/inventarioroute');
 var arbolService = require('./services/arbolroute');
@@ -68,15 +69,18 @@ app.use(session({
 	resave: true,
     saveUninitialized: true,
     secret: 'Dendros' }));
+
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Cargar los archivos de enrutamiento
-  require('./services/indexRoutes')(app);
 
-app.use('/services/route', myService);
+
+require('./services/indexRoutes')(app);
+
+
 app.use('/services/jornadaroute', jornadaService);
 app.use('/services/inventarioroute', inventarioService);
 app.use('/services/arbolroute', arbolService);
