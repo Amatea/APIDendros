@@ -4,7 +4,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <a ng-href="#/crear_evento">
+    <a ng-href="#!/crear_evento">
         <button class="btn btn-success" ng-click="clickCreate()">
             <span class="glyphicon glyphicon-user"></span> Crear Evento
         </button>
@@ -30,7 +30,7 @@
         <tr ng-repeat="e in eventos | orderBy : '- fecha' | filter:keywords ">
             <td>
                 
-                <a href="#/editar_eventos/{{e._id}}"><button  class="btn" >
+                <a href="#!/editar_eventos/{{e._id}}"><button  class="btn" >
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button></a>
               

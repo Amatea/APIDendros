@@ -6,7 +6,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <a ng-href="#/crear_cliente">
+    <a ng-href="#!/crear_cliente">
         <button class="btn btn-success" ng-click="clickCreate()">
             <span class="glyphicon glyphicon-globe"></span> Crear Nuevo Cliente
         </button>
@@ -31,7 +31,7 @@
         <tbody>
         <tr ng-repeat="cliente in pageUsers | orderBy : '- cliente_id' | filter:keywords ">
             <td>
-                <a  ng-href="#/edit">
+                <a  ng-href="#!/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button>

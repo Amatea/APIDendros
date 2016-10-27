@@ -4,7 +4,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <a ng-href="#/crear_pago">
+    <a ng-href="#!/crear_pago">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-user"> </span> Crear Pago
         </button>
@@ -29,7 +29,7 @@
         <tbody>
         <tr ng-repeat="pago in pagosmongo | orderBy : '- _id' | filter:keywords ">
             <td>
-                <a  ng-href="#/edit">
+                <a  ng-href="#!/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button>
@@ -40,7 +40,7 @@
                     {{ pago.pagoId }}
             	</button>
             </td>
-            <td><a href="#/proveedores/{{pago.proveedorId}}">{{ pago.proveedor }}</a></td>
+            <td><a href="#!/proveedores/{{pago.proveedorId}}">{{ pago.proveedor }}</a></td>
             <td>{{ pago.servicio }}</td>
             <td>{{ pago.valor | currency: $ :0 }}</td>
             <td>{{ pago.proyecto }}</td>

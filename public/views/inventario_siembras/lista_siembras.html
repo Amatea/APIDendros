@@ -4,7 +4,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <a ng-href="#/crear_inventario_siembras">
+    <a ng-href="#!/crear_inventario_siembras">
         <button class="btn btn-success" ng-click="clickCreate()">
             <span class="glyphicon glyphicon-leaf"></span> Crear Nueva Siembra
         </button>
@@ -27,7 +27,7 @@
         <tbody>
         <tr ng-repeat="siembra in siembras | orderBy : '- fecha' | filter:keywords ">
             <td>
-                <a  ng-href="#/edit">
+                <a  ng-href="#!/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
                     <span class="glyphicon glyphicon-leaf"></span> Editar
                 </button>

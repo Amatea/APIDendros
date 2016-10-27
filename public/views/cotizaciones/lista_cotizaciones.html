@@ -4,7 +4,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <a ng-href="#/crear_cotizacion">
+    <a ng-href="#!/crear_cotizacion">
         <button class="btn btn-success" ng-click="clickCreate()">
             <span class="glyphicon glyphicon-user"></span>Crear Nueva Cotizacion
         </button>
@@ -28,7 +28,7 @@
         <tbody>
         <tr ng-repeat="cotizacion in pageUsers | orderBy : '- numero_cotizacion' | filter:keywords ">
             <td>
-                <a  ng-href="#/edit">
+                <a  ng-href="#!/edit">
                 <button  class="btn" ng-click="clickEdit(user.id)">
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button>
