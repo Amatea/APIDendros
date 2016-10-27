@@ -12,14 +12,7 @@ var config = {
     port: 27017,
     pwd: 'cibsolar1609',
     user: 'geoUser'
-  },
-  user: 
-    {
-    id: 1,
-    username: '2',
-    password: '2',
-    admin: '2'
-    }
+  }
 }
 
 module.exports = config;

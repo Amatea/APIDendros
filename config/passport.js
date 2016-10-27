@@ -1,8 +1,7 @@
 'use strict';
 
 var passport        = require('passport');
-var LocalStrategy   = require('passport-local-roles').Strategy;
-var JsonStrategy = require('passport-json').Strategy;
+var LocalStrategy   = require('passport-local').Strategy;
 var config            = require('./db');
 
 module.exports = function() {
@@ -21,7 +20,7 @@ passport.deserializeUser(function(id, cb) {
 
 
 passport.use(new LocalStrategy(
-  function(username, password, role, cb) {
+  function(username, password, cb) {
     config.users.findByUsername(username, function(err, user) {
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }

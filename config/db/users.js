@@ -1,6 +1,8 @@
+var config = require('../../config')
+
 var records = [
     { id: 1, username: '1', password: '1', name: 'Andres', role: 'admin', emails: '' },
-    { id: 2, username: '2', password: '2', name: 'Francia', role: '', emails: '' },
+    { id: 2, username: 'amatea', password: 'dendros1320', name: 'Francia', role: '', emails: '' },
     { id: 3, username: '3', password: '3', name: 'Francia', role: 'admin', emails: '' }
 ];
 

@@ -1,4 +1,4 @@
-<div ng-if="authentication.user.role == 'admin' ">Mostrar {{authentication.user.role}}</div>
+<dendros-header></dendros-header>
 <nav class="navbar navbar-default" role="navigation">
   <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
@@ -50,3 +50,7 @@
     </ul>
   </div>
 </nav>
+<div ng-if="authentication.user.role == 'admin' ">
+  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">AMATEAPP</a>
+  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">PAGINA WEB</a>
+</div>
