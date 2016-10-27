@@ -6,7 +6,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <a ng-href="#/crear_arbol">
+    <a ng-href="#!/crear_arbol">
         <button class="btn btn-success" ng-click="clickCreate()">
             <span class="glyphicon glyphicon-cloud"></span> Insertar Nuevo Registro
         </button>
@@ -27,7 +27,7 @@
         <tr ng-repeat="arbol in pageUsers | orderBy : 'plantas_id' | filter:keywords   ">
             </td>
                 <td >{{ arbol.plantas_id }} </td>
-                <td ><a href="#/arbolesDetalle/{{arbol.plantas_id}}">{{ arbol.nombre_comun }} </td>
+                <td ><a href="#!/arbolesDetalle/{{arbol.plantas_id}}">{{ arbol.nombre_comun }} </td>
                 <td>{{ arbol.nombre_cientifico }}</td>
             </td>
         </tr>
