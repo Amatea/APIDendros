@@ -68,7 +68,7 @@ app.use(methodOverride());
 app.use(session({ 
 	resave: true,
     saveUninitialized: true,
-    secret: 'Dendros' }));
+    secret: config.sessionSecret }));
 
 app.use(passport.initialize());
 app.use(passport.session());
