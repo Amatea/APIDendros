@@ -44,6 +44,12 @@ app.factory('Authentication', [
   }
 ]);
 
+app.filter('trustUrl', function ($sce) {
+    return function(url) {
+      return $sce.trustAsResourceUrl(url);
+    };
+});
+
 app.factory('GEO', ['$resource', function($resource){
     return $resource('api/GEO/:id', {id: '@_id'}, {
         update: {
@@ -97,9 +103,3 @@ app.factory('Proveedores', ['$resource', function($resource){
         show: { method: 'GET'},
     })
 }]);
-
-app.filter('trustUrl', function ($sce) {
-    return function(url) {
-      return $sce.trustAsResourceUrl(url);
-    };
-});

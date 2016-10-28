@@ -13,3 +13,10 @@ appDirectives.directive('dendrosHeader', function() {
 		templateUrl: '/views/dendros-header.html',
 	};
 });
+
+appDirectives.directive('dendrosApps', function() {
+	return {
+		restrict: 'E',
+		templateUrl: '/views/dendros-apps.html',
+	};
+});

@@ -195,8 +195,9 @@ app.controller("proveedormodallistController", function ($scope, $http, $routePa
 
 });
 
-app.controller("facturaController", function ($scope, $http, $routeParams, Facturas){
-
+app.controller("facturaController", function ($scope, $http, $routeParams, Facturas, Authentication){
+    $scope.authentication = Authentication;
+    
     $scope.facturas=Facturas.query();
 
     $scope.factura = new Facturas();

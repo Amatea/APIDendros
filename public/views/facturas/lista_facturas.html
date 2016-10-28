@@ -2,53 +2,54 @@
     <dendros-administrador></dendros-administrador>
 </div>
 <hr>
-<div class="row">
-  <div class="col-xs-12 col-md-8">
-    <a ng-href="#!/crear_factura">
-        <button class="btn btn-success" ng-click="clickCreate()">
-            <span class="glyphicon glyphicon-folder-open"></span> Crear Nueva Factura
-        </button>
-    </a>
-  </div>
-  <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
-</div>   
-<hr>
-
-    <table class="table table-striped ">
-        <thead>
-        <tr>
-            <th>Editar</th>
-            <th> Numero Factura</a></th>
-            <th> Cliente</a></th>
-            <th> Descripcion</th>
-            <th> Valor </th>
-            <th> Fecha </th>
-            <th> Estado </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="factura in facturas | orderBy : '- numero_factura' | filter:keywords ">
-            <td>
-                <a  ng-href="#!/edit">
-                <button  class="btn" ng-click="clickEdit(user.id)">
-                    <span class="glyphicon glyphicon-pencil"></span>Editar
-                </button>
-                </a>
-            </td>
-            <td>
-            	<button type="button" class="btn btn-info">
-            	{{ factura.numero_factura }} 
-            	</button>
-            </td>
-            <td>{{ factura.cliente_id }}</td>
-            <td>{{ factura.descripcion }}</td>
-            <td>{{ factura.valor | currency}}</td>
-            <td>{{ factura.fecha | date}} </td> 
-            <td>
-            <button class="btn" ng-class="{Pagada:'btn-success', Pendiente:''}[factura.estado]" ng-click="changeFacturasStatus(factura);">{{factura.estado}}</button>
-        	</td>
-        </tr>
-        </tbody>
-    </table>
+<div ng-if="authentication.user.role == 'admin' ">
+    <div class="row">
+    <div class="col-xs-12 col-md-8">
+        <a ng-href="#!/crear_factura">
+            <button class="btn btn-success" ng-click="clickCreate()">
+                <span class="glyphicon glyphicon-folder-open"></span> Crear Nueva Factura
+            </button>
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+    </div>   
     <hr>
-    
+
+        <table class="table table-striped ">
+            <thead>
+            <tr>
+                <th>Editar</th>
+                <th> Numero Factura</a></th>
+                <th> Cliente</a></th>
+                <th> Descripcion</th>
+                <th> Valor </th>
+                <th> Fecha </th>
+                <th> Estado </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="factura in facturas | orderBy : '- numero_factura' | filter:keywords ">
+                <td>
+                    <a  ng-href="#!/edit">
+                    <button  class="btn" ng-click="clickEdit(user.id)">
+                        <span class="glyphicon glyphicon-pencil"></span>Editar
+                    </button>
+                    </a>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info">
+                    {{ factura.numero_factura }} 
+                    </button>
+                </td>
+                <td>{{ factura.cliente_id }}</td>
+                <td>{{ factura.descripcion }}</td>
+                <td>{{ factura.valor | currency}}</td>
+                <td>{{ factura.fecha | date}} </td> 
+                <td>
+                <button class="btn" ng-class="{Pagada:'btn-success', Pendiente:''}[factura.estado]" ng-click="changeFacturasStatus(factura);">{{factura.estado}}</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+</div> 
