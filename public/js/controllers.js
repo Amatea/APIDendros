@@ -6,8 +6,9 @@ app.controller('inicioController', ['$scope', 'Authentication', '$window', '$rou
   }]);
 
 
-app.controller("arbolesController", function ($scope, $http, userServices){
+app.controller("arbolesController", function ($scope, $http, userServices, Authentication){
     $http.post('/services/arbolroute/arbolesdisplay').success(function(response) {
+        $scope.authentication = Authentication;
 
         userServices.setUser(response);
         $scope.pageUsers=userServices.getPage();
@@ -42,6 +43,7 @@ app.controller("ArbolDetailCtrl", function ($http, $scope, $routeParams){
 });
 
 app.controller("jornadaController", function ($scope,$http, userServices, GEO){
+    
     $http.post("/services/jornadaroute/display").success(function(response) {
 
         console.log("response");

@@ -3,7 +3,10 @@ var config = require('../../config')
 var records = [
     { id: 1, username: '1', password: '1', name: 'Andres', role: 'admin', emails: 'sarmiento@amatea.org' },
     { id: 2, username: 'contabilidad@amatea.org', password: 'dendros1320', name: 'Francia', role: 'admin', emails: 'contabilidad@amatea.org' },
-    { id: 3, username: 'beatriz@amatea.org', password: 'beatriz1320', name: 'Beatriz', role: 'user', emails: 'beatriz@amatea.org' }
+    { id: 3, username: 'beatriz@amatea.org', password: 'beatriz1320', name: 'Beatriz', role: 'user', emails: 'beatriz@amatea.org' },
+    { id: 4, username: 'giancarlo@amatea.org', password: 'giancarlo1320', name: 'Giancarlo', role: 'ambiental', emails: 'giancarlo@amatea.org' },
+    { id: 5, username: '2', password: '2', name: 'ambiental', role: 'ambiental', emails: '' },
+    { id: 6, username: '3', password: '3', name: 'ambiental', role: 'user', emails: '' }
 ];
 
 exports.findById = function(id, cb) {
