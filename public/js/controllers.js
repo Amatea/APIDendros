@@ -98,8 +98,8 @@ app.controller("jornadaCrearController", function ($http, $scope) {
 
 
 
-app.controller("pagoController", function ($http, $scope, $modal, $location, Pagos) {
-    
+app.controller("pagoController", function ($http, $scope, $modal, $location, Pagos, Authentication) {
+    $scope.authentication = Authentication;
 
     $scope.showModal=function(){
         $scope.nuevoMiembro={};
@@ -197,7 +197,7 @@ app.controller("proveedormodallistController", function ($scope, $http, $routePa
 
 app.controller("facturaController", function ($scope, $http, $routeParams, Facturas, Authentication){
     $scope.authentication = Authentication;
-    
+
     $scope.facturas=Facturas.query();
 
     $scope.factura = new Facturas();

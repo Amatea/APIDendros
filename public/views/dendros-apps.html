@@ -1,5 +1,8 @@
-
-  <div ng-if="authentication.user.role == 'admin' ">
-    <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">AMATEAPP</a>
-    <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">PAGINA WEB</a>
+<div ng-if="authentication.user.role == 'admin' ">
+  <div>
+    <h1>Bienvenido, {{authentication.user.name}}</h1>
   </div>
+<hr>
+  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">AMATEAPP</a>
+  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">PAGINA WEB</a>
+</div>
