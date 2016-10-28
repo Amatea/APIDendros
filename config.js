@@ -7,11 +7,7 @@ var config = {
     secretKey: process.env.AWS_SECRET_KEY
   },
   db: {
-    name: 'GeoDB',
-    host: '104.131.122.114',
-    port: 27017,
-    pwd: 'cibsolar1609',
-    user: 'geoUser'
+    conn: 'mongodb://geoUser:cibsolar1609@104.131.122.114:27017/GeoDB'
   }
 }
 

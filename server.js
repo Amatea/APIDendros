@@ -10,9 +10,9 @@ var passportlocal   = require('./config/passport');
 var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
 var flash           = require('connect-flash');
-
 var config = require('./config');
-var connectionString = 'mongodb://' + config.db.user + ':' + config.db.pwd + '@' + config.db.host + ':' + config.db.port + '/'+ config.db.name;
+
+var connectionString = config.db.conn;
 mongoose.connect(connectionString);
 
 var multer = require('multer');
