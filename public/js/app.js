@@ -131,6 +131,21 @@ var app = angular.module('app', [
         templateUrl: 'views/eventos/edit.html',
         controller: 'eventoseditController'
       })
+
+//-------------- Amateapp--------//
+
+      .when('/amateapp',{
+        templateUrl: 'views/amateapp/',
+        controller: 'amateappController'
+      })
+
+//-------------- PaginaWeb--------//
+
+      .when('/paginaweb',{
+        templateUrl: 'views/paginaweb/',
+        controller: 'webController'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

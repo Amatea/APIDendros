@@ -1,4 +1,3 @@
-var config = require('../../config')
 
 var records = [
     { id: 1, username: '1', password: '1', name: 'Andres', role: 'admin', emails: 'sarmiento@amatea.org' },
