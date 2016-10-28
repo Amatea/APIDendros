@@ -1,4 +1,9 @@
 <dendros-header></dendros-header>
+<div ng-if="authentication.user.role == 'ambiental' ">
+  <a href="/signout">Cerrar Sesion</a>
+  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">AVES</a>
+</div>
+<div ng-if="authentication.user.role == 'admin' || authentication.user.role == 'user' ">
 <nav class="navbar navbar-default" role="navigation">
   <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
@@ -50,3 +55,4 @@
     </ul>
   </div>
 </nav>
+</div>
