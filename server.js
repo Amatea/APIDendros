@@ -1,5 +1,5 @@
-var express = require('express');
-var path = require('path');
+var express         = require('express');
+var path            = require('path');
 var bodyParser      = require('body-parser');
 var morgan    		= require('morgan');
 var cookieParser 	= require('cookie-parser');
@@ -10,7 +10,7 @@ var passportlocal   = require('./config/passport');
 var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
 var flash           = require('connect-flash');
-var config = require('./config');
+var config          = require('./config');
 
 var conn = mongoose.connect(config.db.conn);
 
@@ -38,6 +38,7 @@ var storage = multerS3({
     }
 })
 
+var amateappService = require('./services/amateappRoute/amateapproute');
 var geoService = require('./services/georoute');
 var tareaService = require('./services/tarearoute');
 var eventoService = require('./services/eventoroute');
@@ -94,6 +95,7 @@ app.use('/api', geoService);
 app.use('/api', tareaService);
 app.use('/api', eventoService);
 app.use('/api', pagomongoService);
+app.use('/api', amateappService);
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'));

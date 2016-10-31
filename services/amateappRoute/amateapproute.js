@@ -1,14 +1,14 @@
 var express = require('express');
 var User = require('../../dbconnection/amateappDB/userconection.js');
 
-var tarearouter = express.Router();
+var amateapprouter = express.Router();
 
-tarearouter.use(function(req,res,next){
+amateapprouter.use(function(req,res,next){
     console.log('something is happening');
     next();
 });
 
-tarearouter.route('/user')
+amateapprouter.route('/amateapp')
   .get(function(req, res) {
     User.find(function(err, tarea) {
       if (err) {
@@ -18,9 +18,9 @@ tarearouter.route('/user')
     });
 });
 
-tarearouter.route('/user')
+amateapprouter.route('/amateapp')
   .post(function(req, res) {
-  var tarea = new Tarea(req.body);
+  var tarea = new User(req.body);
 
   tarea.save(function(err) {
     if (err) {
@@ -30,7 +30,7 @@ tarearouter.route('/user')
   });
 });
 
-tarearouter.route('/user')
+amateapprouter.route('/amateapp')
   .get(function(req, res) {
     User.find(function(err, tarea) {
       if (err) {
@@ -41,7 +41,7 @@ tarearouter.route('/user')
   })
 
   .post(function(req, res) {
-    var tarea = new Tarea(req.body);
+    var tarea = new User(req.body);
 
     tarea.save(function(err) {
       if (err) {
@@ -51,7 +51,7 @@ tarearouter.route('/user')
     });
   });
 
-tarearouter.route('/user/:id')
+amateapprouter.route('/amateapp/:id')
   .put(function(req,res){
      User.findOne({ _id: req.params.id }, function(err, tarea) {
         if (err) {
@@ -71,7 +71,7 @@ tarearouter.route('/user/:id')
   });
 });
 
-tarearouter.route('/user/:id')
+amateapprouter.route('/amateapp/:id')
     .get(function(req, res) {
       User.findOne({ _id: req.params.id}, function(err, tarea) {
         if (err) {
@@ -81,7 +81,7 @@ tarearouter.route('/user/:id')
   });
 });
 
-tarearouter.route('/user/:id')
+amateapprouter.route('/amateapp/:id')
     .delete(function(req, res) {
       User.remove({
         _id: req.params.id
@@ -94,4 +94,4 @@ tarearouter.route('/user/:id')
 });
 
 
-module.exports = tarearouter;
+module.exports = amateapprouter;

@@ -1,11 +1,10 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
+var config = require('../../config.js')
+var conn1 = mongoose.createConnection(config.db.connAmateapp);  
 
-var conn2 = mongoose.createConnection('mongodb://geoUser:cibsolar1609@159.203.113.208:27017/mean');
-
-var ArticleSchema = conn2.model('Article', new mongoose.Schema({
+var ArticleSchema = {
   
-  // cuestionario
   p1: Number,
   p2: Number,
   p3: Number,
@@ -46,4 +45,6 @@ var ArticleSchema = conn2.model('Article', new mongoose.Schema({
     picture: { type: String, default: 'img/account_circle_48px.svg' }
   },
   created: { type: Date, default: Date.now }
-}));
+};
+
+module.exports = conn1.model('Article', mongoose.Schema(ArticleSchema));
