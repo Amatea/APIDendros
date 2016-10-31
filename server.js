@@ -12,8 +12,8 @@ var mongoose        = require('mongoose');
 var flash           = require('connect-flash');
 var config = require('./config');
 
-var connectionString = config.db.conn;
-mongoose.connect(connectionString);
+var conn = mongoose.createConnection(config.db.conn);
+var conn2 = mongoose.createConnection(config.db.connAmateapp);
 
 var multer = require('multer');
 var ext = require('file-extension');
