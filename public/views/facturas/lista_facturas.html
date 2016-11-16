@@ -4,17 +4,16 @@
 <hr>
 <div ng-if="authentication.user.role == 'admin' ">
     <div class="row">
-    <div class="col-xs-12 col-md-8">
-        <a ng-href="#!/crear_factura">
-            <button class="btn btn-success" ng-click="clickCreate()">
-                <span class="glyphicon glyphicon-folder-open"></span> Crear Nueva Factura
-            </button>
-        </a>
-</div>
-    <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
+        <div class="col-xs-12 col-md-8">
+            <a ng-href="#!/crear_factura">
+                <button class="btn btn-success" ng-click="clickCreate()">
+                    <span class="glyphicon glyphicon-folder-open"></span> Crear Nueva Factura
+                </button>
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
     </div>   
     <hr>
-
         <table class="table table-striped ">
             <thead>
             <tr>

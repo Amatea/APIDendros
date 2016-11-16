@@ -5,7 +5,8 @@ var records = [
     { id: 3, username: 'beatriz@amatea.org', password: 'beatriz1320', name: 'Beatriz', role: 'user', emails: 'beatriz@amatea.org' },
     { id: 4, username: 'giancarlo@amatea.org', password: 'giancarlo1320', name: 'Giancarlo', role: 'ambiental', emails: 'giancarlo@amatea.org' },
     { id: 5, username: 'amatea', password: 'dendros1320', name: 'Contabilidad', role: 'admin', emails: '' },
-    { id: 6, username: '3', password: '3', name: 'ambiental', role: 'user', emails: 'ambiental' }
+    { id: 6, username: '3', password: '3', name: 'ambiental', role: 'user', emails: 'ambiental' },
+    { id: 7, username: '2', password: '2', name: 'ambiental', role: 'ambiental', emails: 'ambiental' },
 ];
 
 exports.findById = function(id, cb) {
