@@ -103,3 +103,11 @@ app.factory('Proveedores', ['$resource', function($resource){
         show: { method: 'GET'},
     })
 }]);
+
+app.factory('Siembras', ['$resource', function($resource){
+    return $resource('/services/inventarioroute/display', {id: '@siembras_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+        show: { method: 'GET'},
+    })
+}]);
