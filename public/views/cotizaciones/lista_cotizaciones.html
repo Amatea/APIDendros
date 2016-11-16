@@ -2,7 +2,8 @@
     <dendros-administrador></dendros-administrador>
 </div>
 <hr>
-
+<h3>Cotizaciones::</h3>
+<hr>
 <div class="row">
   <div class="col-xs-12 col-md-8">
     <a ng-href="#!/crear_cotizacion">
@@ -14,7 +15,6 @@
   <div class="col-xs-6 col-md-4">Buscar:: <input type="text" ng-model="keywords"></div>
 </div>   
 <hr>
-
     <table class="table table-striped ">
         <thead>
         <tr>
@@ -49,10 +49,3 @@
         </tr>
         </tbody>
     </table>
-    <hr>
-
-    <ul class="pagination" ng-repeat="index in autoPaging"  >
-        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
-
-    </ul>
-    

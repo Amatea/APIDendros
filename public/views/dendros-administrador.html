@@ -1,112 +1,114 @@
 <dendros-header></dendros-header>
-<div ng-if="authentication.user.role == 'ambiental' ">
-  <a href="/signout">Cerrar Sesion</a>
-  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">AVES</a>
-</div>
-<div ng-if="authentication.user.role == 'admin' ">
-<nav class="navbar navbar-default" role="navigation">
-  <!-- El logotipo y el icono que despliega el menú se agrupan
-       para mostrarlos mejor en los dispositivos móviles -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Desplegar navegación</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
 
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li role="presentation" class="active"><a href="#!/">Inicio</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-          Administrativo <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li role="presentation"><a href="#!/lista_pagos">Pagos</a></li>
-          <li role="presentation"><a href="#!/lista_cotizacion">Cotizaciones</a></li>
-          <li role="presentation"><a href="#!/lista_proveedores">Proveedores</a></li>
-          <li role="presentation"><a href="#!/lista_clientes">Clientes</a></li>
-          <li role="presentation"><a href="#!/lista_facturas">Facturas</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-          Ambiental <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li role="presentation"><a href="#!/arboles">Lista de Arboles</a></li>
-          <li role="presentation"><a href="#!/aves">Lista de Aves</a></li>
-          <li role="presentation"><a href="#!/jornada_ecologica">Jornadas Ecologicas</a></li>
-          <li role="presentation"><a href="#!/lista_inventario_siembras">Listado Siembras</a></li>
-        </ul>
-      </li>
-    </ul>
-    
-    <ul class="nav navbar-nav navbar-right">
-      <li role="presentation"><a href="/signout">Cerrar Sesion</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" >
-      <li role="presentation"><a href="#!/tareas" >Tareas</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" >
-      <li role="presentation"><a href="#!/eventos" >Eventos</a></li>
-    </ul>
-  </div>
-</nav>
+<div ng-if="authentication.user.role == 'admin' ">
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- El logotipo y el icono que despliega el menú se agrupan
+        para mostrarlos mejor en los dispositivos móviles -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li role="presentation" class="active"><a href="#!/">Inicio</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
+            Administrativo <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a href="#!/lista_pagos">Pagos</a></li>
+            <li role="presentation"><a href="#!/lista_cotizacion">Cotizaciones</a></li>
+            <li role="presentation"><a href="#!/lista_proveedores">Proveedores</a></li>
+            <li role="presentation"><a href="#!/lista_clientes">Clientes</a></li>
+            <li role="presentation"><a href="#!/lista_facturas">Facturas</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
+            Ambiental <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a href="#!/arboles">Lista de Arboles</a></li>
+            <li role="presentation"><a href="#!/aves">Lista de Aves</a></li>
+            <li role="presentation"><a href="#!/jornada_ecologica">Jornadas Ecologicas</a></li>
+            <li role="presentation"><a href="#!/lista_inventario_siembras">Listado Siembras</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation"><a href="/signout">Cerrar Sesion</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        <li role="presentation"><a href="#!/tareas" >Tareas</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        <li role="presentation"><a href="#!/eventos" >Eventos</a></li>
+      </ul>
+    </div>
+  </nav>
 </div>
 
 <div ng-if="authentication.user.role == 'user' ">
-<nav class="navbar navbar-default" role="navigation">
-  <!-- El logotipo y el icono que despliega el menú se agrupan
-       para mostrarlos mejor en los dispositivos móviles -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Desplegar navegación</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- El logotipo y el icono que despliega el menú se agrupan
+        para mostrarlos mejor en los dispositivos móviles -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li role="presentation" class="active"><a href="#!/">Inicio</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-          Administrativo <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          
-          <li role="presentation"><a href="#!/lista_cotizacion">Cotizaciones</a></li>
-          <li role="presentation"><a href="#!/lista_proveedores">Proveedores</a></li>
-          <li role="presentation"><a href="#!/lista_clientes">Clientes</a></li>
-          
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-          Ambiental <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li role="presentation"><a href="#!/arboles">Lista de Arboles</a></li>
-          <li role="presentation"><a href="#!/aves">Lista de Aves</a></li>
-          <li role="presentation"><a href="#!/jornada_ecologica">Jornadas Ecologicas</a></li>
-          <li role="presentation"><a href="#!/lista_inventario_siembras">Listado Siembras</a></li>
-        </ul>
-      </li>
-    </ul>
-    
-    <ul class="nav navbar-nav navbar-right">
-      <li role="presentation"><a href="/signout">Cerrar Sesion</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" >
-      <li role="presentation"><a href="#!/tareas" >Tareas</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" >
-      <li role="presentation"><a href="#!/eventos" >Eventos</a></li>
-    </ul>
-  </div>
-</nav>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li role="presentation" class="active"><a href="#!/">Inicio</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
+            Administrativo <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li role="presentation"><a href="#!/lista_cotizacion">Cotizaciones</a></li>
+            <li role="presentation"><a href="#!/lista_proveedores">Proveedores</a></li>
+            <li role="presentation"><a href="#!/lista_clientes">Clientes</a></li>
+            
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
+            Ambiental <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a href="#!/arboles">Lista de Arboles</a></li>
+            <li role="presentation"><a href="#!/aves">Lista de Aves</a></li>
+            <li role="presentation"><a href="#!/jornada_ecologica">Jornadas Ecologicas</a></li>
+            <li role="presentation"><a href="#!/lista_inventario_siembras">Listado Siembras</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation"><a href="/signout">Cerrar Sesion</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        <li role="presentation"><a href="#!/tareas" >Tareas</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        <li role="presentation"><a href="#!/eventos" >Eventos</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div ng-if="authentication.user.role == 'ambiental' ">
+  <a href="/signout">Cerrar Sesion</a>
+  <a type="button" href="#!/aves" class="btn btn-success btn-lg btn-block">AVES</a>
 </div>
