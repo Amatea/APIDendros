@@ -12,6 +12,7 @@ var PagoSchema = new Schema({
   servicio: String,
   valor: String,
   proyecto: String,
+  email: String,
   estado: { type: String, default: 'Pendiente' },
   fecha: { type: Date, default: Date.now }
 
