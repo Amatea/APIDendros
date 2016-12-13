@@ -31,7 +31,7 @@
         <tbody>
         <tr ng-repeat="pago in pagosmongo | orderBy : '- _id' | filter:keywords ">
             <td>
-                <a  ng-href="#!/edit">
+                <a  ng-href="#!/editar_pago/{{pago._id}}">
                 <button  class="btn" ng-click="clickEdit(user.id)">
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button>
@@ -48,7 +48,7 @@
             <td>{{ pago.proyecto }}</td>
             <td>{{ pago.fecha | date}} </td> 
             <td>
-            <button class="btn" ng-class="{Pagado:'btn-success', Pendiente:''}[pago.estado]" ng-click="changePagosStatus(pago);">{{pago.estado}}</button>
+            <button class="btn" ng-class="{Pagado:'btn-success', Pendiente:''}[pago.estado]" ng-click="changePagosStatus(pago); postMail(pago)">{{pago.estado}}</button>
         	</td>
         </tr>
         </tbody>

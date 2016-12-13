@@ -100,7 +100,7 @@ app.controller("jornadaCrearController", function ($http, $scope) {
 
 
 
-app.controller("pagoController", function ($http, $scope, $modal, $location, Pagos, Authentication) {
+app.controller("pagoController", function ($http, $scope, $routeParams, $modal, $location, Pagos, Authentication) {
     $scope.authentication = Authentication;
 
     $scope.showModal=function(){
@@ -124,7 +124,38 @@ app.controller("pagoController", function ($http, $scope, $modal, $location, Pag
     $scope.addPago = function() {
         $scope.pagom.$save()
     };
+
+    
+
+    //nodemailer
+
+    $scope.postData = {};
+
+    $scope.postMail = function (pago) { // parametro debe serigual al $scope de los datos (contacto)
+     
+     
+      // wrap all your input values in $scope.postData
+      $scope.postData = angular.copy(pago);
+
+      $http.post('api/email2', $scope.postData)
+        .success(function(data) {
+          // Show success message
+        })
+        .error(function(data) {
+          // Show error message
+        });
+    };
 });
+
+app.controller("pagoeditController", function ($http, $scope, $routeParams, $modal, $location, Pagos, Authentication) {
+    $scope.updateEvento = function (){
+        Pagos.update($scope.dato);
+        $location.path('/lista_pagos');
+    };
+
+    $scope.dato = Pagos.show({id: $routeParams._id})
+});
+
 
 app.controller("cotizacionlistController", function ($scope, $http, $routeParams, userServices){
     $http.get("/services/cotizacionroute/cotizaciondisplay").success(function(response) {

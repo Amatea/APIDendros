@@ -1,0 +1,60 @@
+<h3>Agregar Pago:</h3>
+
+<form class="form-horizontal" name="myForm1">
+   <div class="form-group">
+        <label class="col-sm-2 control-label">Nombre Proveedor:</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="dato.proveedor"  placeholder="Nombre" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Tipo de Servicio:</label>
+        <div class="col-sm-10">
+            <input type="text" list='servicio' ng-model="dato.servicio"  required>
+                <datalist id='servicio'>
+                    <option label='Nomina' value='Nomina'>
+                    <option label='Honorario' value='Honorario'>
+                    <option label='Tallerista' value='Tallerista'>
+                    <option label='Logistica' value='Logistica'>
+                    <option label='Interprete' value='Interprete'>
+                    <option label='Fotografia' value='Fotografia'>
+                    <option label='Diseño' value='Diseño'>
+                    <option label='Transporte' value='Transporte'>
+                    <option label='Paramedico' value='Paramedico'>
+                    <option label='Generales' value='Generales'>
+                </datalist>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Valor:</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="dato.valor"  placeholder="No" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Proyecto:</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="dato.proyecto"  placeholder="Nombre" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Email:</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="dato.email"  placeholder="email">
+        </div>
+    </div>
+</form>
+
+<hr>
+<div>
+  <button class="btn btn-success" ng-click="updateEvento(pago)" >
+    <span class="glyphicon glyphicon-save"></span> Guardar
+</button>
+  <a href="#!/lista_pagos/">
+    <button class="btn btn-warm">
+        <span class="glyphicon glyphicon-save"></span> cancelar
+    </button>
+  </a>
+</div>
+

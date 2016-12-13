@@ -65,6 +65,10 @@ var app = angular.module('app', [
         templateUrl: 'views/pagos/crearpagos.html',
         controller: 'pagoController'
       })
+      .when('/editar_pago/:_id',{
+        templateUrl: 'views/pagos/pagosedit.html',
+        controller: 'pagoeditController'
+      })
       .when('/lista_cotizacion',{
         templateUrl: 'views/cotizaciones/lista_cotizaciones.html',
         controller: 'cotizacionlistController'
