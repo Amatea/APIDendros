@@ -54,6 +54,7 @@ var clienteService = require('./services/clienteroute');
 var formularioService = require('./services/formularioroute');
 var aveService = require('./services/averoute');
 var pagomongoService = require('./services/pagorouteMongo');
+var mailService = require('./services/mailroute');
 
 
 var app = express();
@@ -98,6 +99,7 @@ app.use('/api', eventoService);
 app.use('/api', pagomongoService);
 app.use('/api', amateappService);
 app.use('/api/web', amateawebService);
+app.use('/api', mailService);
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'));

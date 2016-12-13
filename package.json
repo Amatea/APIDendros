@@ -34,6 +34,7 @@
     "multer-s3": "^2.3.2",
     "mysql": "2.7.0",
     "mysql-activerecord": "^0.8.6",
+    "nodemailer": "^2.7.0",
     "passport": "*",
     "passport-json": "^1.2.0",
     "passport-local": "*",
