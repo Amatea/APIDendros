@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('app', [
+const App = angular.module('App', [
   'ngResource', 
   'ngRoute',
   'appServices',

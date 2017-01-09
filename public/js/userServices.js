@@ -1,5 +1,5 @@
-angular.module('appServices', [])
-    .service("userServices", function ($http) {
+const app = angular.module('appServices', [])
+    app.service("userServices", function ($http) {
         var users={};
         var pageSize=100;
         var page=0;

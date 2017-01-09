@@ -11,8 +11,17 @@ var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
 var flash           = require('connect-flash');
 var config          = require('./config');
+const dotenv        = require('dotenv');
+const chalk         = require('chalk');
 
-var conn = mongoose.connect(config.db.conn);
+dotenv.load({ path: '.env.eco' });
+
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
+mongoose.connection.on('error', () => {
+  console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+  process.exit();
+});
 
 var multer = require('multer');
 var ext = require('file-extension');
@@ -59,6 +68,8 @@ var mailService = require('./services/mailroute');
 
 var app = express();
 
+app.set('port', process.env.PORT || 3000);
+
 app.use(morgan('dev'));
 
 app.use(cookieParser());
@@ -101,7 +112,7 @@ app.use('/api', amateappService);
 app.use('/api/web', amateawebService);
 app.use('/api', mailService);
 
-app.set('port', process.env.PORT || 3000);
-app.listen(app.get('port'));
-
-console.log("Server started on 3000");
+app.listen(app.get('port'), () => {
+  console.log('%s App is running at http://localhost:%d in %s mode', chalk.blue('✓'), app.get('port'), app.get('env')); 
+  console.log('  Press CTRL-C to stop\n');
+});
