@@ -1,6 +1,6 @@
 'use strict';
 
-const App = angular.module('App', [
+angular.module('App', [
   'ngResource', 
   'ngRoute',
   'appServices',
@@ -8,9 +8,9 @@ const App = angular.module('App', [
   'appDirectives',
   'leaflet-directive',
   'ui.bootstrap'
-  ]);
+  ])
 
-  app.config(function($routeProvider, $locationProvider) {
+  .config(function($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('!');
 
     $routeProvider

@@ -10,9 +10,7 @@ app.controller("arbolesController", function ($scope, $http, userServices, Authe
     $http.post('/services/arbolroute/arbolesdisplay').success(function(response) {
         $scope.authentication = Authentication;
 
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
+        
     });
 
 
