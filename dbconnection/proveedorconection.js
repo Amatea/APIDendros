@@ -1,7 +1,7 @@
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
-mongoose.Promise = global.Promise;
+
 
 const connection = mongoose.createConnection(process.env.MONGODB_URILO);
 

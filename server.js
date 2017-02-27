@@ -79,10 +79,15 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(methodOverride());                  
-app.use(session({ 
-	resave: true,
-    saveUninitialized: true,
-    secret: config.sessionSecret }));
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: process.env.SESSION_SECRET,
+  store: new MongoStore({
+    url: process.env.MONGODB_URILO,
+    autoReconnect: true
+  })
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
