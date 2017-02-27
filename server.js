@@ -19,7 +19,7 @@ const chalk         = require('chalk');
 dotenv.load({ path: '.env.eco' });
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://geoUser:cibsolar1609@localhost/GeoDB');
+mongoose.connect('mongodb://geoUser:cibsolar1609@104.236.216.92:27017/GeoDB');
 mongoose.connection.on('error', () => {
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
   process.exit();
