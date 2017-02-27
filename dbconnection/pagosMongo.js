@@ -4,7 +4,7 @@ var autoIncrement = require('mongoose-auto-increment');
 
 
 
-autoIncrement.initialize();
+
 
 var PagoSchema = new Schema({
   pagoId: Number,
@@ -18,5 +18,5 @@ var PagoSchema = new Schema({
 
 });
 
-PagoSchema.plugin(autoIncrement.plugin, { model: 'Pago', field: 'pagoId' });
+
 module.exports = mongoose.model('Pago', PagoSchema);
