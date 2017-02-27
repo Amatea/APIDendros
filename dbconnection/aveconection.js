@@ -3,9 +3,9 @@ var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 
-var connection = mongoose.createConnection(process.env.MONGODB_URILO);
+
  
-autoIncrement.initialize(connection);
+autoIncrement.initialize();
 
 var AveSchema = new Schema({
     
