@@ -49,8 +49,7 @@ var storage = multerS3({
     }
 })
 
-var amateawebService = require('./services/amateawebRoute/noticiaroute');
-var amateappService = require('./services/amateappRoute/amateapproute');
+
 var geoService = require('./services/georoute');
 var tareaService = require('./services/tarearoute');
 var eventoService = require('./services/eventoroute');
@@ -115,8 +114,6 @@ app.use('/api', geoService);
 app.use('/api', tareaService);
 app.use('/api', eventoService);
 app.use('/api', pagomongoService);
-app.use('/api', amateappService);
-app.use('/api/web', amateawebService);
 app.use('/api', mailService);
 
 app.listen(app.get('port'), () => {
