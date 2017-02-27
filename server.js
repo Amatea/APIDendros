@@ -11,6 +11,7 @@ var favicon 		= require('serve-favicon');
 var mongoose        = require('mongoose');
 var flash           = require('connect-flash');
 var config          = require('./config');
+const MongoStore = require('connect-mongo')(session);
 const dotenv        = require('dotenv');
 const chalk         = require('chalk');
 
