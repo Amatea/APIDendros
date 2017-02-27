@@ -1,4 +1,4 @@
-var mongoose = require('./conect.js'),
+var mongoose=require('mongoose');
     Schema = mongoose.Schema;
 
 var TareaSchema = new Schema({
