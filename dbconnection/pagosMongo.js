@@ -1,7 +1,9 @@
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
- 
+
+const connection = mongoose.createConnection(process.env.MONGODB_URILO);
+
 autoIncrement.initialize(connection);
 
 var PagoSchema = new Schema({
