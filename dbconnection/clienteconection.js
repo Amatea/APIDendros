@@ -1,20 +1,27 @@
+var mongoose=require('mongoose');
+var Schema=mongoose.Schema;
+var autoIncrement = require('mongoose-auto-increment');
 
 
+var connection = mongoose.createConnection(process.env.MONGODB_URILO);
+ 
+autoIncrement.initialize(connection);
 
-clientes.prototype.agregarcliente=function(req,done){
-        console.log(req.body);
-        var cliente = this.addQuotes(req.body.cliente_id);
-        var razonsocial = this.addQuotes(req.body.razon_social);
-        var nit = this.addQuotes(req.body.nit);
-        var tipo = this.addQuotes(req.body.tipo);
-        var correo = this.addQuotes(req.body.correo_electronico);
-        var telefono = this.addQuotes(req.body.telefono);
-        var direccion = this.addQuotes(req.body.direccion);
-        var ciudad = this.addQuotes(req.body.ciudad);
-        var fecha = this.addQuotes(req.body.fecha);
-        var queryStr = "INSERT INTO clientes (`cliente_id`, `razon_social`, `nit`, `tipo`, `correo_electronico`, `telefono`, `direccion`, `ciudad`, `fecha`) VALUES ("+cliente+", "+razonsocial+", "+nit+", "+tipo+", "+correo+", "+telefono+", "+direccion+", "+ciudad+",  "+fecha+");";
-        console.log(queryStr);
-        this.query(req,queryStr,done);
+var ClienteSchema = new Schema({
+    
+  clienteId: Number,
+  razonsocial: String,
+  nit: String,
+  nombre_comun: String,
+  tipo: String,
+  correo: String,
+  telefono: String,
+  direccion: String,
+  ciudad: String,
+  fecha: { type: Date, default: Date.now }
 
-};
+});
+
+AveSchema.plugin(autoIncrement.plugin, { model: 'Cliente', field: 'clienteId' });
+module.exports = mongoose.model('Cliente', ClienteSchema);
 

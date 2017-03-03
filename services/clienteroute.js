@@ -1,26 +1,70 @@
 var express = require('express');
-var clientes = require('../dbconnection/clienteconection.js');
+var Cliente = require('../dbconnection/clienteconection.js');
 
 var clienteroute = express.Router();
 
 
-clienteroute.use(function(req,res,next){
-    console.log('something is happening');
-    next();
+clienteroute.route('/clientes')
+  .get(function(req, res) {
+    Cleinte.find(function(err, cliente) {
+      if (err) {
+        return res.send(err);
+      }
+      res.json(cliente);
+    });
+  })
+
+  .post(function(req, res) {
+    var cliente = new Cliente(req.body);
+
+    cliente.save(function(err) {
+      if (err) {
+        return res.send(err);
+      }
+      res.send({ message: 'Cliente Added' });
+    });
+  });
+
+clienteroute.route('/clientes/:id')
+  .put(function(req,res){
+     Cliente.findOne({ _id: req.params.id }, function(err, cliente) {
+        if (err) {
+          return res.send(err);
+        }
+
+        for (prop in req.body) {
+          cliente[prop] = req.body[prop];
+        }
+   
+        cliente.save(function(err) {
+          if (err) {
+            return res.send(err);
+          }
+        res.json({ message: 'cliente updated!' });
+    });
+  });
 });
 
-clienteroute.get('/display',function(req,res,next){
-    clientes.display(req,function(result){
-        res.send(result);
-   });
+clienteroute.route('/cliente/:id')
+    .get(function(req, res) {
+      Cliente.findOne({ _id: req.params.id}, function(err, cliente) {
+        if (err) {
+          return res.send(err);
+        }
+        res.json(cliente);
+  });
 });
 
-
-clienteroute.put('/agregarcliente',function(req,res){
-    clientes.agregarcliente(req,function(result){
-        res.send(result);
-   });
+clienteroute.route('/clientes/:id')
+    .delete(function(req, res) {
+      Cliente.remove({
+        _id: req.params.id
+      }, function(err, cliente) {
+       if (err) {
+         return res.send(err);
+      }
+    res.json({ message: 'Satisfactoriamente deleted' });
+  });
 });
-
 
 module.exports = clienteroute;
