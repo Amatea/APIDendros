@@ -2,9 +2,9 @@ var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
-const connection = mongoose.createConnection(process.env.MONGODB_URILO);
+//const connection = mongoose.createConnection(process.env.MONGODB_URILO);
 
-autoIncrement.initialize(connection);
+//autoIncrement.initialize(connection);
 
 var PagoSchema = new Schema({
   pagoId: Number,
@@ -18,5 +18,5 @@ var PagoSchema = new Schema({
 
 });
 
-PagoSchema.plugin(autoIncrement.plugin, { model: 'Pago', field: 'pagoId' });
+//PagoSchema.plugin(autoIncrement.plugin, { model: 'Pago', field: 'pagoId' });
 module.exports = mongoose.model('Pago', PagoSchema);

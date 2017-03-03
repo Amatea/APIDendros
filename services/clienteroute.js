@@ -6,7 +6,7 @@ var clienteroute = express.Router();
 
 clienteroute.route('/clientes')
   .get(function(req, res) {
-    Cleinte.find(function(err, cliente) {
+    Cliente.find(function(err, cliente) {
       if (err) {
         return res.send(err);
       }
@@ -45,7 +45,7 @@ clienteroute.route('/clientes/:id')
   });
 });
 
-clienteroute.route('/cliente/:id')
+clienteroute.route('/clientes/:id')
     .get(function(req, res) {
       Cliente.findOne({ _id: req.params.id}, function(err, cliente) {
         if (err) {

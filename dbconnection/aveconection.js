@@ -3,9 +3,9 @@ var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 
-var connection = mongoose.createConnection(process.env.MONGODB_URILO);
+//var connection = mongoose.createConnection(process.env.MONGODB_URILO);
  
-autoIncrement.initialize(connection);
+//autoIncrement.initialize(connection);
 
 var AveSchema = new Schema({
     
@@ -31,5 +31,5 @@ var AveSchema = new Schema({
 
 });
 
-AveSchema.plugin(autoIncrement.plugin, { model: 'Ave', field: 'aveId' });
+//AveSchema.plugin(autoIncrement.plugin, { model: 'Ave', field: 'aveId' });
 module.exports = mongoose.model('Ave', AveSchema);
