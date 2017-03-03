@@ -107,7 +107,7 @@ app.use('/services/cotizacionroute', cotizacionService);
 app.use('/api', facturaService);
 app.use('/services/pagoroute', pagoService);
 app.use('/api', proveedorService);
-app.use('/services/clienteroute', clienteService);
+app.use('/api', clienteService);
 app.use('/services/formularioroute', formularioService);
 app.use('/api', aveService);
 app.use('/api', geoService);

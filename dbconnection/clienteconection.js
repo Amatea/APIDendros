@@ -22,6 +22,6 @@ var ClienteSchema = new Schema({
 
 });
 
-AveSchema.plugin(autoIncrement.plugin, { model: 'Cliente', field: 'clienteId' });
+ClienteSchema.plugin(autoIncrement.plugin, { model: 'Cliente', field: 'clienteId' });
 module.exports = mongoose.model('Cliente', ClienteSchema);
 
