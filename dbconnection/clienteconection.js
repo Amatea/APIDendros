@@ -1,27 +1,4 @@
-var mysql = require('mysql');
 
-var pool = mysql.createPool({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'cibsolar1609'
-});
-
-
-
-function clientes() {
-}
-
-clientes.prototype.display=function(req,done){
-    var queryStr = 'SELECT * FROM clientes ';
-    this.query(req,queryStr,done);
-
-};
-
-clientes.prototype.clienteDetail=function(req,done){
-    var queryStr = "SELECT * FROM clientes WHERE cliente_id ="+req.params.cliente_id;
-    this.query(req,queryStr,done);
-
-};
 
 
 clientes.prototype.agregarcliente=function(req,done){
@@ -41,35 +18,3 @@ clientes.prototype.agregarcliente=function(req,done){
 
 };
 
-
-
-clientes.prototype.query = function (req,queryString,done) {
-    pool.getConnection(function(err, connection) {
-        // Use the connection
-        if (err) {
-            done({"msg": "DB connection error"});
-        }
-        else{
-            connection.query('use dendros');
-            connection.query( queryString, function(err, rows) {
-                // And done with the connection.
-                console.log(err);
-                if (err) {
-                    done({"msg": "DB error. Please check DB log."});
-                }
-                else{
-                    console.log('The solution is: ', rows);
-                    done(rows);
-                }
-                connection.release();
-            });
-        }
-
-    });
-};
-
-clientes.prototype.addQuotes = function(string) {
-    return "'" + string + "'";
-};
-
-module.exports = new clientes();
