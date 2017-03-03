@@ -3,16 +3,15 @@ var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 
-//var connection = mongoose.createConnection(process.env.MONGODB_URILO);
+var connection = mongoose.createConnection(process.env.MONGODB_URILO);
  
-//autoIncrement.initialize(connection);
+autoIncrement.initialize(connection);
 
 var ClienteSchema = new Schema({
     
   clienteId: Number,
   razonsocial: String,
   nit: String,
-  nombre_comun: String,
   tipo: String,
   correo: String,
   telefono: String,
@@ -22,6 +21,6 @@ var ClienteSchema = new Schema({
 
 });
 
-//ClienteSchema.plugin(autoIncrement.plugin, { model: 'Cliente', field: 'clienteId' });
+ClienteSchema.plugin(autoIncrement.plugin, { model: 'Cliente', field: 'clienteId' });
 module.exports = mongoose.model('Cliente', ClienteSchema);
 

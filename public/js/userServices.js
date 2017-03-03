@@ -111,3 +111,11 @@ app.factory('Siembras', ['$resource', function($resource){
         show: { method: 'GET'},
     })
 }]);
+
+app.factory('Clientes', ['$resource', function($resource){
+    return $resource('api/clientes/:id', {id: '@_id'}, {
+        update: { method: 'PUT'},
+        get: { method: 'GET', isArray: true},
+        show: { method: 'GET'},
+    })
+}]);

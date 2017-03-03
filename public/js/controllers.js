@@ -279,39 +279,35 @@ app.controller("siembracrearController", function ($http, $scope, $modal) {
 
 });
 
-app.controller("clientelistController", function ($scope, $http, $routeParams, userServices){
-    $http.get("/services/clienteroute/display").success(function(response) {
-
-        console.log("response");
-        userServices.setUser(response);
-        $scope.pageUsers=userServices.getPage();
-        $scope.autoPaging = userServices.autoPage()
-    });
-
-
-    $scope.getCurrentPage = function() {
-        $scope.pageUsers=userServices.getPage();
-    };
-
-    $scope.setPageIndex =function(id) {
-        userServices.setPageIndex(id);
-        $scope.getCurrentPage();
-    };
+app.controller("clientelistController", function ($scope, $http, $routeParams, Clientes){
+    $scope.clientes = Clientes.query();
 
 });
 
-app.controller("crearclienteController", function ($http, $scope) {
-    $scope.cliente={};
-    $scope.submitCreate=  function() {
-        
-        $http.put("/services/clienteroute/agregarcliente",$scope.cliente).success(function(response) {
+app.controller("crearclienteController", function ($http, $scope, Clientes) {
+    $scope.cliente = new Clientes();  //crear nombre
 
-            console.log("response");
-
-        });
+    $scope.addCliente = function() {
+        $scope.cliente.$save() 
     };
 
+    $scope.updateCliente = function (){
+        Clientes.update();
+        $location.path('/clientes');
+    };
 });
+
+app.controller('clienteeditController', function($scope, $http, $routeParams, $location, Clientes){
+
+  
+    $scope.updateCliente = function (){
+        Clientes.update($scope.cliente);
+        $location.path('/clientes');
+    };
+
+    $scope.cliente = Clientes.show({id: $routeParams._id})
+
+})
 
 app.controller("avesController", function ($scope, $http, $routeParams, $location, Aves){
     

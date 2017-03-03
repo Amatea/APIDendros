@@ -114,6 +114,10 @@ angular.module('App', [
         templateUrl: 'views/clientes/crear_cliente.html',
         controller: 'crearclienteController' 
       })
+      .when('/edit_cliente/:_id',{
+        templateUrl: 'views/clientes/edit_cliente.html',
+        controller: 'clienteeditController' 
+      })
       .when('/tareas',{
         templateUrl: 'views/tareas/tareas.html',
         controller: 'tareasController'

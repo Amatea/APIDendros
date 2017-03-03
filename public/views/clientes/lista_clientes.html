@@ -29,28 +29,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="cliente in pageUsers | orderBy : '- cliente_id' | filter:keywords ">
+        <tr ng-repeat="cliente in clientes | orderBy : '-_id' | filter:keywords ">
             <td>
-                <a  ng-href="#!/edit">
-                <button  class="btn" ng-click="clickEdit(user.id)">
+                <a href="#!/edit_cliente/{{cliente._id}}">
+                <button  class="btn" >
                     <span class="glyphicon glyphicon-pencil"></span>Editar
                 </button>
                 </a>
             </td>
-            <td >{{ cliente.cliente_id }} </td>
-            <td>{{ cliente.razon_social }}</td>
+            <td >{{ cliente.clienteId }} </td>
+            <td>{{ cliente.razonsocial }}</td>
             <td>{{ cliente.nit}}</td>
             <td>{{ cliente.tipo }}</td>
-            <td>{{ cliente.correo_electronico }}</td>
+            <td>{{ cliente.correo }}</td>
             <td>{{ cliente.ciudad }}</td> 
             <td>{{ cliente.fecha | date}} </td> 
         </tr>
         </tbody>
     </table>
     <hr>
-
-    <ul class="pagination" ng-repeat="index in autoPaging"  >
-        <li><a href="" ng-click="setPageIndex(index)">{{ index }}</a></li>
-
-    </ul>
     
